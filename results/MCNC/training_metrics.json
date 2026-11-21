@@ -1,0 +1,513 @@
+{
+ "course": "MCNC",
+ "train_questions": 336,
+ "test_questions": 84,
+ "slides": 105,
+ "slide_texts_added_to_training": 630,
+ "topics": {
+  "lec1": "Introduction to Manufacturing and Materials Processing",
+  "lec2": "Casting, Forming and Sheet Metal Processes",
+  "lec3": "Metal Cutting Fundamentals",
+  "lec4": "Machining Operations and Machine Tools",
+  "lec5": "CNC Fundamentals",
+  "lec6": "CNC Programming and CAM",
+  "lec7": "Additive Manufacturing, Metrology and Industry 4.0"
+ },
+ "classifier": {
+  "nb": {
+   "accuracy": 0.9167,
+   "macro_f1": 0.9151,
+   "macro_precision": 0.9244,
+   "macro_recall": 0.9167,
+   "cv5_accuracy": 0.8724,
+   "cv5_std": 0.0658,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.857,
+     "recall": 1.0,
+     "f1": 0.923,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 1.0,
+     "recall": 0.833,
+     "f1": 0.909,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.857,
+     "recall": 1.0,
+     "f1": 0.923,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 1.0,
+     "recall": 0.75,
+     "f1": 0.857,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     11,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     12,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     1,
+     10,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     12,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     11,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     0,
+     0,
+     1,
+     9
+    ]
+   ],
+   "errors": [
+    {
+     "question": "Milling feed rate equals f_z z N. ( ) True ✔ ( ) False",
+     "true": "lec4",
+     "pred": "lec3"
+    },
+    {
+     "question": "Laser engravers are commonly controlled by:",
+     "true": "lec6",
+     "pred": "lec5"
+    },
+    {
+     "question": "Zirconia is used in dental milling. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "FDM print time is roughly proportional to:",
+     "true": "lec7",
+     "pred": "lec1"
+    },
+    {
+     "question": "Linear motion in CNC axes is typically provided by:",
+     "true": "lec4",
+     "pred": "lec5"
+    },
+    {
+     "question": "Dental CAD/CAM workflows typically involve:",
+     "true": "lec7",
+     "pred": "lec6"
+    },
+    {
+     "question": "Metal AM is used to produce:",
+     "true": "lec7",
+     "pred": "lec2"
+    }
+   ]
+  },
+  "logreg": {
+   "accuracy": 0.881,
+   "macro_f1": 0.8812,
+   "macro_precision": 0.8905,
+   "macro_recall": 0.881,
+   "cv5_accuracy": 0.8337,
+   "cv5_std": 0.0628,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 1.0,
+     "recall": 0.917,
+     "f1": 0.957,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.818,
+     "recall": 0.75,
+     "f1": 0.783,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.75,
+     "recall": 1.0,
+     "f1": 0.857,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 1.0,
+     "recall": 0.833,
+     "f1": 0.909,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.833,
+     "recall": 0.833,
+     "f1": 0.833,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     10,
+     0,
+     0,
+     1,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     11,
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     9,
+     3,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     12,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     10,
+     1
+    ],
+    [
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     10
+    ]
+   ],
+   "errors": [
+    {
+     "question": "Linear guides and ball screws drive CNC axes. ( ) True ✔ ( ) False",
+     "true": "lec4",
+     "pred": "lec5"
+    },
+    {
+     "question": "Laser engravers are commonly controlled by:",
+     "true": "lec6",
+     "pred": "lec5"
+    },
+    {
+     "question": "EDM works on non-conductive ceramics directly. ( ) True ( ) False ✔",
+     "true": "lec4",
+     "pred": "lec5"
+    },
+    {
+     "question": "Zirconia is used in dental milling. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec4"
+    },
+    {
+     "question": "ISO 286 defines:",
+     "true": "lec1",
+     "pred": "lec7"
+    },
+    {
+     "question": "FDM print time is roughly proportional to:",
+     "true": "lec7",
+     "pred": "lec1"
+    },
+    {
+     "question": "Diamond-coated tools are commonly used for milling:",
+     "true": "lec3",
+     "pred": "lec4"
+    },
+    {
+     "question": "The typical workflow order is:",
+     "true": "lec6",
+     "pred": "lec7"
+    },
+    {
+     "question": "Linear motion in CNC axes is typically provided by:",
+     "true": "lec4",
+     "pred": "lec5"
+    },
+    {
+     "question": "Metal AM is used to produce:",
+     "true": "lec7",
+     "pred": "lec2"
+    }
+   ]
+  },
+  "ens": {
+   "accuracy": 0.9286,
+   "macro_f1": 0.9272,
+   "macro_precision": 0.9329,
+   "macro_recall": 0.9286,
+   "cv5_accuracy": 0.8754,
+   "cv5_std": 0.0744,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.857,
+     "recall": 1.0,
+     "f1": 0.923,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 1.0,
+     "recall": 0.75,
+     "f1": 0.857,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     11,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     12,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     11,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     12,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     11,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     0,
+     0,
+     1,
+     9
+    ]
+   ],
+   "errors": [
+    {
+     "question": "Laser engravers are commonly controlled by:",
+     "true": "lec6",
+     "pred": "lec5"
+    },
+    {
+     "question": "Zirconia is used in dental milling. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec4"
+    },
+    {
+     "question": "FDM print time is roughly proportional to:",
+     "true": "lec7",
+     "pred": "lec1"
+    },
+    {
+     "question": "Linear motion in CNC axes is typically provided by:",
+     "true": "lec4",
+     "pred": "lec5"
+    },
+    {
+     "question": "Dental CAD/CAM workflows typically involve:",
+     "true": "lec7",
+     "pred": "lec6"
+    },
+    {
+     "question": "Metal AM is used to produce:",
+     "true": "lec7",
+     "pred": "lec2"
+    }
+   ]
+  }
+ },
+ "best_model": "ens",
+ "search": {
+  "questions": 420,
+  "lecture_top1": 0.9714,
+  "lecture_top3": 0.9738,
+  "refused_course_questions": 8,
+  "test_questions": 84,
+  "test_top1": 0.8929,
+  "test_top3": 0.8929,
+  "test_refused": 6,
+  "threshold": {
+   "similarity": 0.12,
+   "coverage": 0.6,
+   "tuned_on": "336 training questions + 20 off-topic"
+  },
+  "offtopic_total": 20,
+  "offtopic_refused": 20
+ },
+ "bank": {
+  "total": 420,
+  "mcq": 259,
+  "tf": 161
+ }
+}

@@ -10,9 +10,12 @@ This repository is the **project description** — what was built, how it works,
 
 | File | What it is |
 |---|---|
-| [Masar_Report.pdf](Masar_Report.pdf) | the full technical report (131 pages): problems and solutions, history from the first Flask prototype to Masar, every function and why it was added, the three workflows and their access rights, the CNN, OCR and text models explained with the real code, results, screenshots, references |
-| [Masar_Presentation.pptx](Masar_Presentation.pptx) · [.pdf](Masar_Presentation.pdf) | presentation, 36 slides with speaker notes |
-| [Masar_Demo.mp4](Masar_Demo.mp4) | demo video (10 min): Part 1 on a computer — the student, doctor and administrator workflows with animated cards explaining every algorithm; Part 2 on a phone — the student workflow |
+| [Masar_Report_V2.pdf](Masar_Report_V2.pdf) | the full technical report, version 2 (140 pages): problems and solutions, history from the first Flask prototype to Masar, every function and why it was added, the three workflows and their access rights, Rafiq, every website function, the organization of the work, deployment step by step, the CNN, OCR and text models explained with the real code, results, screenshots, references |
+| [Masar_Presentation_V2.pptx](Masar_Presentation_V2.pptx) · [.pdf](Masar_Presentation_V2.pdf) | presentation, version 2: 74 slides in 10 chapters with speaker notes, animations and the embedded demo video — the idea, workflows, Rafiq, data and AI models, the application, every website function, organization, demo video, deployment, the journey, what comes next |
+| [Masar_Demo_V2.mp4](Masar_Demo_V2.mp4) | demo video (10 min 5 s): Part 1 on a computer — the student, doctor and administrator workflows with animated cards explaining every algorithm; Part 2 on a phone — the student workflow in 13 steps |
+| [results/](results/) | training and evaluation results of every course and of the image model: metrics (JSON) and confusion matrices (§14) |
+| [screenshots/](screenshots/) | screenshots of the site and the workflow diagrams |
+| [LICENSE](LICENSE) · [AUTHORS.md](AUTHORS.md) · [CITATION.cff](CITATION.cff) | ownership, author and how to cite |
 
 ## What the project is made of
 
@@ -47,8 +50,13 @@ Masar is a complete web product, not a single model. It has seven parts that wor
 8. [Problems met and how they were solved](#8-problems-met-and-how-they-were-solved)
 9. [Security and privacy](#9-security-and-privacy)
 10. [Limitations and future work](#10-limitations-and-future-work)
-11. [Guide to the technical report](#11-guide-to-the-technical-report-masar_reportpdf-131-pages)
-12. [Ownership](#12-ownership)
+11. [Every function of the website](#11-every-function-of-the-website)
+12. [Organization of the work](#12-organization-of-the-work)
+13. [Deployment: from the laptop to a live site](#13-deployment-from-the-laptop-to-a-live-site)
+14. [Results files in this repository](#14-results-files-in-this-repository)
+15. [Guide to the technical report](#15-guide-to-the-technical-report-masar_report_v2pdf-140-pages)
+16. [Change log](#16-change-log)
+17. [Ownership](#17-ownership)
 
 ---
 
@@ -167,7 +175,7 @@ The whole build (reading the lecture and question-bank files, training, evaluati
 **Rafiq (chat assistant).** A rule-based intent router understands English, Arabic and Franco-Arabic requests ("show my exams", "open the plan"), checks that the person is allowed to see the page, and otherwise falls back to the slide search. It does not generate free conversation.
 
 ### 3.1 Results on the twenty Mechatronics courses
-84 held-out bank questions per course (20 %, never used in training, tuning or model choice). Full tables and every confusion matrix are in the technical report ([Masar_Report.pdf](Masar_Report.pdf), Chapters 6–9 and Appendix A).
+84 held-out bank questions per course (20 %, never used in training, tuning or model choice). Full tables and every confusion matrix are in the technical report ([Masar_Report_V2.pdf](Masar_Report_V2.pdf), Chapters 6–9 and Appendix A) and in [results/](results/).
 
 **What changed in this round (16 Nov):** the structured slide files are added to the training text (one row per slide and per bullet), a soft-vote **ensemble** of NB + LR joins
 the candidates, the kept model is chosen by **5-fold CV on the training questions only**, and the search index is **expanded with the training questions**
@@ -374,34 +382,435 @@ CSRF tokens, secret rotation and backups · import the official student list (co
 university single sign-on · PostgreSQL, own domain and a phone app (PWA) · neural search as default and monthly retraining on real questions ·
 a licence per faculty.
 
-## 11. Guide to the technical report (Masar_Report.pdf, 131 pages)
+## 11. Every function of the website
+
+### 11.1 Methodology: how every function is built
+Every function of Masar was built with the same six steps, which is why all pages behave alike and why every function is covered by the automatic tests.
+
+| Step | What happens |
+|---|---|
+| 1 · Requirement | the function comes from a real need: the project requirements, a lecturer request, or a problem seen in the activity log |
+| 2 · Route + access rule | one page address with a rule that says who may open it (student, doctor, administrator, or a sub-administrator permission key); forbidden pages are never shown |
+| 3 · Logic in a server module | the page only checks access and reads input; a separate module does the work and can be tested alone |
+| 4 · One design kit, EN / AR | the page is built from shared components, in English and Arabic, light and dark |
+| 5 · Everything recorded | questions, answers, exams, visits and staff actions go to the activity log or the audit trail |
+| 6 · Automatic tests | 113 tests open every page for every role before each change is published |
+
+Principles: answers only from the course material · small explainable models · role-based access · everything logged.
+
+### 11.2 Who is responsible for what
+
+| Role | Responsible for | Cannot do |
+|---|---|---|
+| Visitor | register (student) or request a doctor account; forgot password; write to support | open any study or staff page |
+| Student | his own learning: Ask, Practice, Progress, Plan, Studio, My files, Exams; chat with accepted contacts | see others' data or staff pages |
+| Doctor | his courses: lectures, videos, exam banks, schedules, announcements, his students, dashboard, weekly report, badges | other doctors' courses; manage staff; the vault |
+| Sub-administrator | only the ticked keys: content, exams, badges, data, students, chat, support, doctors, announcements | anything outside his keys; vault, danger zone, AI models |
+| Main administrator | the whole site: courses, doctors, admins, students, monitoring, support, Rafiq log, AI models, backups, vault, danger zone | — |
+
+Every staff action is written to the audit trail with time and person.
+
+### 11.3 Student functions
+
+| Function | How it works |
+|---|---|
+| Ask | text, Arabic or photo → glossary / OCR → topic model → slide search + re-ranking → "Not found" gate → quick answer, topic and 3 slides with lecture · slide; "was this helpful?" vote; save |
+| Practice | bank questions of a topic; up to 2 hints or reveal; level m ← m + 0.35 (outcome − m), outcome 1 / 0.7 / 0.4 / 0 |
+| Progress | every topic red (< 0.40), amber or green (≥ 0.70); study next = weakest topic with green prerequisites; reviews after 1, 3 and 7 days |
+| Plan + countdown | the student sets his exam date; topics below 80 % are spread over the days left (up to 90), weakest first, last day = full review |
+| Study Studio | from the slides only, by extraction: summary, key terms (Excel), flash cards, quick quiz, mind map, infographic, revision slides (PowerPoint), read-aloud, videos |
+| My files | own notes → passages → tagged by the course classifier → private index; all Studio tools run on them; coverage report (what is missing compared with the course) |
+| Saved · Materials | bookmarked answers; lecture PDFs (one by one or ZIP) and lecture videos |
+| Exams | random exam from the bank; time = sum of the minutes per question; countdown on every page; autosave; closes by itself at time-up; result with explanations |
+| Badges | 25 automatic badges computed from the log (days, streaks, questions, practice, green topics) + custom badges from doctors and administrators |
+| Calendar · Notifications | scheduled exams and his exam date; bell for announcements, badges, exams, chat requests and reminders |
+| Chat | direct messages; the other person must accept the request first; block anybody; attach files |
+| Help · Support · Rafiq | FAQ (staff can add); support message even before sign-in; Rafiq opens any page from one sentence |
+| Account | register with the university code; 5 tries then a 15-minute lock; forgot password by e-mail; profile photo; EN / AR; dark mode |
+| Personal backup | download a copy of his own data at any time; one automatic copy a day (last 7 kept) |
+
+### 11.4 The exams function in detail
+
+| Part | How it works |
+|---|---|
+| Bank | the doctor uploads PDF, Word, text, Excel or CSV ("Q1. …", "A) … B) …", "Answer: B"); English and Arabic versions paired by number; an Excel template is offered |
+| Types | multiple choice · true / false · essay (model answer + keywords) |
+| Settings | minutes per type: 1 · 0.5 · 5; essay similarity: full ≥ 0.45, half ≥ 0.25 |
+| Create | the student picks the number of questions → random draw → time limit = sum of the minutes |
+| Take | countdown on every page; answers saved while typing |
+| Close | at time-up the page hands itself in; an exam left open is graded by the server after the deadline |
+| Grade | choice questions by the key (option index, so independent of the language); essays: the better of keywords (≥ 0.7 / ≥ 0.4) and similarity |
+| Doctor view | all attempts, one attempt in detail, export to Excel / CSV; scheduled exams in the course calendar |
+
+### 11.5 Doctor functions
+
+| Function | How it works |
+|---|---|
+| Content | upload lecture PDFs → one passage per slide → index rebuilt → course re-evaluated automatically; delete a lecture or a course; add a new course from PDFs (topics, fill-in-the-blank bank, classifier, index) |
+| Videos | recorded lectures or YouTube links → shown in the Studio and Materials |
+| Exam management | bank, settings, attempts, exports; schedule an exam date in the calendar |
+| Dashboard | most asked topics, lowest scores, unanswered questions (with follow-up mark), students at risk + remind button, log as Excel |
+| Weekly report | activity of the week, weak topics, unanswered questions, students who need attention |
+| Announcements · Students | message to all students of a course (notification); student list with search, export and delete |
+| Badges · Chat · FAQ | his own badges for his students; answer chats; add help questions |
+
+### 11.6 Administrator functions
+
+| Function | How it works |
+|---|---|
+| Doctors · Admins | approve doctor requests; create doctors (generated password); create sub-administrators with 9 permission keys |
+| Courses · codes | all courses; upload the official course-code Excel that doctors pick from |
+| Visitors · Activity log | device, system, browser, country, busiest hours (10 visits per page); audit trail of every staff action |
+| Support · Rafiq log | support inbox (open / done, password reset); every Rafiq conversation, top requests, messages not understood |
+| AI models page | behind a second password: how the models work, results, confusion matrices, automatic evaluation, Colab results |
+| Data vault | own password; closes after 20 minutes idle; every view logged; reset passwords; export to Excel |
+| Danger zone | sentence → choice → 10-second warning → security code → deletion after 3 h or 24 h, cancellable |
+| Site backups | daily site copy (last 7) + manual copies (last 5); download, delete, restore with the admin password |
+
+### 11.7 Functions that run automatically
+
+| Function | When |
+|---|---|
+| Licence guard | every request: no valid key → only the licence notice |
+| Permission check | every request: sign-in, role and permission key before the page |
+| Activity logging | every question, answer, exam and visit → SQLite |
+| Daily backups | first request of the day: site copy; first visit of a person: personal copy |
+| Exam auto-close | at the deadline: lock and grade open attempts |
+| Students at risk | once a day per course: notify the doctor |
+| Spaced reviews · badges | weak topics come back after 1, 3, 7 days; badges computed from the log |
+| Auto-evaluation | after each upload: Top-1 / Top-3 / MRR and the off-topic test |
+
+## 12. Organization of the work
+
+### 12.1 Areas of work
+
+| Area | Main responsibility |
+|---|---|
+| Lead and architecture | the idea, system architecture, back end and AI models, deployment, integration and review of every change |
+| Course data | lecture material, question banks, topics and prerequisites |
+| Front end | CSS design kit, Arabic and dark mode, page layouts |
+| Testing and evaluation | test questions, off-topic sets, result tables, the 113 automatic tests |
+| Documentation | report, README, help texts and user guide |
+| Presentation and user test | presentation, demo video and the real-user test protocol |
+
+**How the idea was built, step by step:** experiments with TF-IDF, BM25 and a topic classifier (early November) → a five-page Flask prototype (9 November) → the architecture (109 routes, 56 server modules, roles and 9 permission keys) → the AI models (search with index expansion, the "Not found" gate, the cross-validated topic classifier, the mastery model and plan, the CNN + OCR image model on Colab) → one data pipeline for all twenty courses → safety and ownership (hashed passwords, audit trail, vault, danger zone, backups, licence key) → deployment on PythonAnywhere.
+
+**Stages of the interface:** V1 plain Flask (9 Nov) → V2 Arabic right-to-left and dark mode (9 Nov) → design study, "Edu" look chosen (9 Nov) → V4 Edu dashboard design (11–12 Nov) → V6 one CSS design kit with line icons (14 Nov) → V8–V10 polish, phone layout, dark-mode contrast (14–16 Nov) → V11 Masar identity, Indigo Route palette and logo on all 56 pages (16 Nov).
+
+### 12.2 Phases
+
+| Phase | Dates (2026) | Output |
+|---|---|---|
+| 1 · Requirements and design | 9 Nov | requirements mapped to features; dashboard designs compared, "Edu" look chosen |
+| 2 · Prototype | 9 Nov | Flask V1: Ask, Practice, Progress, Evaluation; first deployment |
+| 3 · Multi-user system | 9–12 Nov | accounts, exams, Arabic, dark mode, Study Studio (V2–V4) |
+| 4 · Consolidation | 12–15 Nov | design kit, SQLite, Rafiq, data vault, backups (V5–V8) |
+| 5 · Scale and models | 15–16 Nov | 20 Mechatronics courses, stronger models, CNN + OCR, rename to Masar (V9–V11) |
+| 6 · Delivery | 17–21 Nov | report, presentation, demo video, licence, final review |
+
+### 12.3 Working rules for every change
+1. Make the change on the laptop in one small, separate step.
+2. Run the 113 automatic tests; nothing is published while a test fails.
+3. Commit with a clear message and push to the private GitHub repository.
+4. Add a dated line (Cairo time) to the change log (§16).
+5. Update the live site and check the changed page.
+6. Update the documents that describe the change.
+
+### 12.4 How the code and data are organized (described, not published)
+
+| Part | What it holds |
+|---|---|
+| web application | page addresses (109), roles, permission keys, request guards |
+| configuration | paths, list of courses, settings, time zone |
+| server modules (56) | search, classifier, mastery, plan, exams, studio, assistant (Rafiq), backup, vault, visitors, licence … |
+| page templates (56) | one base layout and shared parts |
+| static files | CSS design kit, icons, logo, model reports and charts |
+| one data folder per course | slides, passages, topics, question banks |
+| one model folder per course | the trained models of the course |
+| scripts and notebooks | build, train and evaluate; Google Colab notebooks |
+| tests | 113 automatic tests |
+
+Three principles: pages never contain logic (a page checks access, calls a module and shows a template) · adding a course = one data folder + one automatic build, no code change · accounts, logs, uploads and secrets never enter the repository and are backed up daily by the site.
+
+## 13. Deployment: from the laptop to a live site
+
+**The path of the code:** develop and test on the laptop → push to a private GitHub repository → the server pulls it → users reach it over HTTPS at <https://ahmedhallawa.pythonanywhere.com>. Heavy training (the CNN) runs on Google Colab and only the trained files travel through GitHub. Private data and the licence key live only on the server.
+
+### 13.1 Why GitHub
+
+| Reason | What it gives the project |
+|---|---|
+| Version control | every change is a commit with date, time and message: 120+ changes can be read, compared and undone |
+| Single source of truth | the laptop, the server and every reviewer get exactly the same code from one place |
+| Deployment channel | the server updates itself with one command (`git pull`); no manual copying, no forgotten file |
+| Off-site backup | if the laptop or the server is lost, the code and the models are still on GitHub |
+| Privacy and ownership | private repository with a licence; the server reads it with a read-only token |
+| Documentation | README with a dated change log, screenshots and results; this public page |
+
+### 13.2 Choosing where to host
+
+| Option | What happened | Decision |
+|---|---|---|
+| Laptop + Cloudflare Tunnel | works only while the laptop is on and online | rejected: not available 24 h |
+| Hugging Face Spaces (Docker) | Docker Spaces needed a paid plan | rejected: cost |
+| Render (free web service) | asked for a payment card; free disk wiped on every restart; sleeps after 15 min | rejected: accounts and logs would be lost |
+| **PythonAnywhere (free)** | persistent 512 MiB disk, Python pre-installed, free HTTPS, no card, made for Flask (WSGI) | **chosen** |
+| VPS / Railway (paid) | full control, more disk; needs gunicorn, nginx and administration | kept for later (scaling) |
+
+Rule: accounts, logs and exams must survive restarts, so a persistent disk is required.
+
+### 13.3 Setting up PythonAnywhere (seven steps)
+1. Clone the private repository in a Bash console (shallow clone, read-only token).
+2. Create a virtual environment with Python 3.10 and install the requirements.
+3. Web tab → *Add a new web app* → **Manual configuration** (the Flask quick-start template would create a new empty app; Masar already exists).
+4. Set the source folder, the working folder and the virtual-environment path.
+5. Edit the WSGI file, which connects the server to the Flask application.
+6. Put the secrets on the server only: passwords, the secret key, the licence key.
+7. Reload → the site is live with HTTPS.
+
+### 13.4 Running the live site
+
+| Topic | How it is handled |
+|---|---|
+| Update cycle | laptop: tests → push; server: pull → Reload; about one minute per release |
+| Secrets and configuration | environment variables on the server; licence key in a private folder; nothing secret in GitHub |
+| Private repository | the server uses a read-only fine-grained token, so it can fetch but never write |
+| Disk quota 512 MiB | shallow, sparse checkout: no old history, no video or PDFs on the server |
+| Data safety | daily automatic site backup + 5 manual; restore from the admin page; SQLite backup API |
+| Keeping it alive | free plan: "Run until 1 month from today" pressed monthly; error and server logs on the Web tab |
+
+### 13.5 Deployment problems and how they were solved
+
+| Problem | Solution |
+|---|---|
+| Hugging Face Docker became paid; Render needed a card and lost the disk | moved to PythonAnywhere (free, persistent disk) |
+| `git pull` stopped after the repository was made private | read-only fine-grained GitHub token on the server |
+| disk quota (512 MiB) exceeded by history, video and presentations | fresh shallow + sparse clone; heavy files kept off the server |
+| TensorFlow too large for the free host | CNN trained on Colab; the site runs the OCR + text half of the image model |
+| pull refused because of the old Excel log | log moved to SQLite; file untracked; one-time backup-and-restore |
+| browser kept old CSS after an update | Reload + hard refresh (Ctrl + Shift + R) |
+| no outgoing internet on the free plan (neural model download) | neural search made optional; TF-IDF stays the default |
+
+## 14. Results files in this repository
+
+| Folder | What it holds |
+|---|---|
+| [results/&lt;CODE&gt;/](results/) (20 courses) | `training_metrics.json` (accuracy, macro-F1, cross-validation of Naive Bayes, Logistic Regression and the ensemble, search Top-1 / Top-3), `auto_metrics.json` (automatic evaluation of the four search methods and the off-topic test), confusion matrices (`confusion_matrix_nb.png`, `_logreg.png`, `_ens.png`) and `per_class_f1.png` |
+| [results/image_model/](results/image_model/) | accuracy chart, confusion matrices (CNN only and CNN + OCR) and `metrics.json` of the image model |
+| [results/mechatronics_summary.png](results/mechatronics_summary.png) · `.json` | accuracy of all twenty courses side by side |
+| [results/AI_course/](results/AI_course/) | results of the original Artificial Intelligence course (November report): metrics, confusion matrices, "Not found" threshold chart |
+| [screenshots/](screenshots/) | screenshots of the site (student, doctor, administrator, Arabic, dark mode, phone) and the workflow diagrams |
+| [assets/](assets/) | logo, workflow diagrams and the figures used in this page |
+
+Course codes: AUTO Automotive Engineering · AUTN Autonomous Systems · BIOM Biomechatronics · CTRL Control Systems · ROBO Robotics · SENA Sensors and Actuators · EPLC Embedded Systems and PLC · FLUD Fluid Mechanics · PELC Power Electronics · STAT Statics · DYNA Engineering Dynamics · STRM Strength of Materials · THRM Thermodynamics · HEAT Heat Transfer · MDSN Machine Design · CIRC Electric Circuits · EMCH Electrical Machines · DLOG Digital Logic Design · SIGS Signals and Systems · MCNC Manufacturing and CNC.
+
+## 15. Guide to the technical report (Masar_Report_V2.pdf, 140 pages)
 
 The report explains everything above in depth, with real code, screenshots and results. Where to find each part:
 
 | Chapter | Page | What it explains |
 |---|---|---|
-| 1 Introduction | 13 | the problem, objectives, scope, author, summary of results |
-| 2 Project Overview and Requirements | 16 | the idea in one sentence, the name Masar, users and roles, requirements, technology |
-| 3 Evolution of the System | 19 | Version 1 (plain Flask) → versions 2–5 → 6–8 → 9–11 (Masar); why each group of functions was added |
-| 4 System Architecture | 28 | layers, packages, storage, internationalisation, roles and the permission gate |
-| 5 Data: Twenty Courses | 31 | source of the material, files of one course, preparation steps |
-| 6 Slide Search and the "Not Found" Gate | 34 | text normalisation, TF-IDF, BM25, LSA, hybrid, index expansion, the gate, results |
-| 7 Topic Classification | 41 | features, Naive Bayes, Logistic Regression, ensemble, cross-validation, results |
-| 8 Student Model | 46 | mastery update, study next, spaced review, the study plan |
-| 9 Image Recognition | 53 | CNN and transfer learning, MobileNetV2, OCR, fusion, experiments, confusion matrices |
-| 10 Rafiq | 61 | the intent router, permissions, conversations |
-| 11 The Exam Engine | 66 | banks, timer, auto-closing, grading of choice and essay questions |
-| 12 Study Studio and My Files | 70 | every study aid, built from the slides only |
-| 13 The Three Workflows | 81 | step-by-step student, doctor and administrator workflows with screenshots and who can open what |
-| 14 Administration, Monitoring, Backups | 105 | activity log, audit trail, data vault, danger zone, backups |
-| 15 Security, Privacy, Licensing | 111 | accounts, authorisation, privacy, licence-key gate, known gaps |
-| 16 Problems and Solutions | 113 | every problem met and how it was solved |
-| 17 Testing and Evaluation | 116 | automatic tests, evaluation protocol, results |
-| 18 Deployment and Operations | 118 | hosting, updating the site, backups, deliverables |
-| 19 Conclusion and Future Work | 120 | conclusion, limitations, future work |
-| Appendices A–C | 123–129 | results of the twenty courses, further screens, glossary |
-| References | 130 | the sources, with links |
+| 1 Introduction | 14 | the problem, requirements and objectives, scope, summary of results |
+| 2 Project Overview and Requirements | 17 | the idea in one sentence, the name Masar, users and roles, requirements, technology |
+| 3 Evolution of the System | 20 | Version 1 (plain Flask) → versions 2–5 → 6–8 → 9–11 (Masar); why each group of functions was added |
+| 4 System Architecture | 27 | layers, packages, storage, internationalisation, roles and the permission gate |
+| 5 Data: Twenty Mechatronics Courses | 30 | source of the material, files of one course, preparation steps |
+| 6 Slide Search and the "Not Found" Gate | 33 | text normalisation, TF-IDF, BM25, LSA, hybrid, index expansion, the gate, results |
+| 7 Topic Classification | 39 | features, Naive Bayes, Logistic Regression, ensemble, cross-validation, results |
+| 8 Student Model | 44 | mastery update, study next, spaced review, the study plan |
+| 9 Image Recognition | 50 | CNN and transfer learning, MobileNetV2, OCR, fusion, experiments, confusion matrices |
+| 10 Rafiq | 57 | the intent router, permissions, conversations, real answers |
+| 11 The Exam Engine | 67 | banks, timer, auto-closing, grading of choice and essay questions |
+| 12 Study Studio and My Files | 71 | every study aid, built from the slides only |
+| 13 The Three Workflows | 79 | step-by-step student, doctor and administrator workflows with screenshots and who can open what |
+| 14 Every Function of the Website | 97 | the methodology and every function, with the responsibility of each role |
+| 15 Administration, Monitoring and Backups | 105 | activity log, audit trail, data vault, danger zone, backups |
+| 16 Security, Privacy and Licensing | 109 | accounts, authorisation, privacy, licence-key gate, known gaps |
+| 17 Problems and Solutions | 111 | every problem met and how it was solved |
+| 18 Testing and Evaluation | 114 | automatic tests, evaluation protocol, results |
+| 19 Project Organization | 116 | areas of work, how the idea was built, interface stages, phases, working rules, code and data organization |
+| 20 Deployment and Operations | 122 | why GitHub, choosing the host, PythonAnywhere step by step, updates, problems solved |
+| 21 Conclusion and Future Work | 130 | conclusion, limitations, future work |
+| Appendices A–C | 133–138 | results of the twenty courses, further screens, glossary |
+| References | 139 | the sources, with links |
 
-## 12. Ownership
+## 16. Change log
+
+
+Every change of the project (private repository), newest first — date and time in Cairo time (UTC+2). 121 changes in total.
+
+### Saturday 21 November 2026
+
+| Time | Change |
+|---|---|
+| 21:00 | Public project page (this repository): version 2 of the report (140 pages), presentation (74 slides) and demo video; results and screenshots folders; README extended with every website function, organization, deployment, results files and this change log |
+| 20:20 | Version 2 of the deliverables: Masar_Presentation_V2 (77 slides, Organization chapter, presenters on the dividers, new demo video), Masar_Report_V2 (.pdf/.docx, 140 pages, expanded Project Organization chapter, smaller explained figures) and Masar_Demo_V2.mp4 (computer + phone, 10:05); added next to the previous versions |
+| 16:40 | Final presentation (70 slides, 9 chapters, embedded demo video, animations; Rafiq, website functions, deployment) and technical report (157 pages: every function, Rafiq, organization, deployment, video link) |
+
+### Friday 20 November 2026
+
+| Time | Change |
+|---|---|
+| 19:35 | Licence: trial key for reviewers (3 launches, then "Trial finished"); the owner's permanent key is unchanged |
+| 19:20 | Repository reduced to the final deliverables: Masar_Report.pdf (English technical report), Masar_Presentation (.pptx/.pdf) and Masar_Demo.mp4; older reports, master files and guides removed; README brought up to date (history StudyMate → Masar, documents, rights) |
+| 18:50 | Technical report: colour figures, coloured code and tables, conclusion, team names, logos on the cover |
+| 18:30 | Demo video without the intro/outro text lines; presentation first and last slide show only the word مسار |
+| 18:19 | Put the Masar presentation (36 slides), the animated demo video (Ahmed Hallawa) and the Arabic report (67 pages) back in the repository |
+| 17:47 | Take the Masar video, presentation and second Arabic PDF out of the repository |
+| 17:19 | Masar presentation, second Arabic PDF in the Masar brand and the demo video (student, doctor, admin) |
+
+### Monday 16 November 2026
+
+| Time | Change |
+|---|---|
+| 15:17 | Masar (مسار): new name, logo and Indigo Route palette across the site; licence-key gate |
+| 15:07 | Twenty courses, stronger models (87.7 %), image model CNN + OCR (90 % of 140 lectures), Rafiq conversations page, visitors paging, UI fixes, licence and authorship |
+| 13:15 | Put back the AI-course files the test run had rewritten (passages, index, metrics) |
+| 13:15 | Exam countdown, exams close by themselves at time-up, studio quiz topped up from the question bank, daily backups for the site and every user |
+| 12:47 | MAIN.md: master file of the whole project, with its Arabic illustrated PDF (docs/StudyMate_MAIN_AR.pdf) |
+
+### Sunday 15 November 2026
+
+| Time | Change |
+|---|---|
+| 20:57 | README change log: date and time only (Cairo time), the change is added before each commit |
+| 20:57 | README: change log with the date and time of every change (Cairo time) |
+| 20:11 | Seven Mechatronics courses with their training data, models and results; full README |
+| 19:41 | My files in the Study Studio; the assistant is now called Rafiq |
+| 19:21 | Header menus open above the page bars; the assistant keeps its conversation |
+
+### Saturday 14 November 2026
+
+| Time | Change |
+|---|---|
+| 20:12 | Logs move from Excel to SQLite; chat assistant (layer 1, free intent router) |
+| 14:50 | Site visitors page (main admin): the 'Total site visits' card opens who visits — phone / tablet / laptop, system, browser, IP, country (inside or outside Egypt) and internet provider from the offline GeoIP2Fast database, busiest hours and the latest visits with search |
+| 14:28 | Start page: no 'Please sign in' message just for opening it; the message shows only when Sign in is pressed with empty fields |
+| 14:11 | Design pass over the whole site: line icons for badges, notifications and quick search; one field style (Ask, chat, support, activity log, date and link fields); readable activity log; one empty-state block; quiz answers with letters and right/wrong animation; button ripple, card lift and sliding tab background; layout fixes (calendar month, studio list, header, one back button, phone cards) |
+| 13:37 | One look for the whole site: line icons instead of emoji, one search field (icon, clear button), one drop-down style, one chip/tab style for filters and tabs |
+| 03:17 | Danger zone: schedule the deletion of chosen data or the whole site (sentence, choice, 10-second warning, security code, 3/24 h waiting period, cancel, closed page) |
+
+### Friday 13 November 2026
+
+| Time | Change |
+|---|---|
+| 14:49 | Data vault: entry only from the main admin's profile; person page with summary, course filter, tabs and icons; course filter on the people list |
+
+### Thursday 12 November 2026
+
+| Time | Change |
+|---|---|
+| 20:49 | Data vault (main admin only, own password): every person with his account, activity, chats and all uploaded files; Excel per person and for all; copies of photo questions kept |
+| 20:30 | Ask with a photo: OCR (Tesseract, EN+AR) turns a picture of the question into text for the search and classifier |
+| 20:10 | Final report PDF (docs/StudyMate_Final_Report.pdf), presentation numbers updated, old reports archived |
+| 20:05 | Help page title key; ignore runtime json files |
+| 20:02 | Data card: new dataset sizes; ignore slide image cache |
+| 20:01 | Weekly report: even course tiles, 2x2 totals on phones |
+| 19:56 | Back arrow, weekly report dashboard per course/doctor, direct Colab upload; bigger test sets, student query variants, more labelled questions, leak-free threshold tuning |
+| 19:48 | Register: required university code, hints only when rule broken, mandatory doctor department shown to admin |
+| 19:41 | Admin can delete registered students (one or many) with all their data |
+| 18:57 | Register steps (student/doctor), doctor requests, chat requests + block, no guest, select-all perms, badge creator, editable threshold |
+| 18:40 | Saved questions, study plan, announcements, weekly report and admin activity log |
+| 11:53 | Move the privacy/who-can-sign-in note from the login page to Help |
+| 11:35 | Clear message when the password is left empty on sign-in |
+| 11:19 | Simpler login page and responsive layout for phone, tablet and laptop |
+| 11:08 | Balanced admin/doctor home like the student home, centred menu in the bar for everyone |
+| 11:04 | Read ticks in chat, doctor username, registered users list to make admins |
+| 10:57 | Consistency pass: opaque sticky bar, styled file pickers, no chat suggestions, cleaner staff chip, login polish |
+| 10:49 | Auto-pick best search model, chat files + close chat, one-row top bar, remove language tooltip and exam count |
+| 10:42 | Admins tab with name/username/password/permissions, tabs stay in the Content page, trio cards on admin home |
+| 10:28 | Login page fits the window; cache CSS/JS for a week with a version stamp |
+| 10:22 | Staff UI: calendar in the right column, only Support inbox button, themed language menu, Exams/Badges/Doctors as Content tabs (no numbers), course menu on Data page; remove stray test course data/MUL9 |
+| 10:16 | Slide results: drop repeated header/footer, slide pictures, structured text, best sentence with show more, grouping and quick answer |
+| 10:06 | Admin bar: search replaces Badges, language dropdown, calendar only on home as a large card, separate Admins card |
+| 09:54 | Limit the Calm Academic design to the top bar only |
+| 09:53 | Calm Academic look site-wide: Inter type, labelled pill nav with SVG icons, search pill, softer cards and buttons |
+| 09:36 | Keep the hidden models page out of the quick search |
+| 09:36 | Top-bar quick search, remove students icon from the bar, remove doctors/students export links and the dice icon |
+| 09:29 | True/false detection, question-type counts, upload progress bar, new login page, confusion matrix for automatic evaluation, admins card, message buttons |
+| 09:08 | Read text inside slide pictures (OCR), import Colab notebook results on the models page, improvement advice |
+| 02:44 | Doctor insights: unanswered questions, spaced-repetition reviews, students who need attention (daily notice + remind) |
+| 02:33 | Report: formal text-only cover, abstract, detailed contents, conclusion, appendices and references |
+| 02:25 | Professional project report (English for submission, Arabic copy) with screenshots, workflows and permissions |
+| 02:07 | Add Arabic project report (PDF) |
+| 02:05 | README with screenshots, DEPLOY and HANDOVER guides |
+| 02:02 | Optional free neural search method (fastembed, graceful fallback to Hybrid) |
+| 01:59 | Studio: remove slide deck, unify tile icons; course dropdown with icons (title only); floating Help on every page (public read, staff-only add) |
+| 01:54 | Add Colab notebooks: search-model training/evaluation and lecture-image recognition (with executed outputs) |
+| 01:45 | Slate-blue palette, auto-evaluation of search models, questions follow-up, videos in Studio, live clock; stop tracking logs.xlsx |
+| 01:18 | Studio shelf (quiz, mind map, slide deck + exams/progress/materials), slide preview, Help page with editable FAQ, My courses in nav, hidden password-protected AI models page, remove home tiles |
+| 00:34 | Studio: tidy mind map, stacked listen notes with EN/AR voice, practice merged into quiz, Exams/Progress/Materials moved into Studio hub |
+| 00:23 | Ready exam option, search-method explanations, Cairo date, remove all courses, delete account with password |
+| 00:13 | Study Studio: one student tab with a summary report, flashcards, quick quiz, terms table (+Excel), concept map, infographic, revision slides (+PPTX) and read-aloud, all built from the lecture slides |
+
+### Wednesday 11 November 2026
+
+| Time | Change |
+|---|---|
+| 23:51 | Opening the site link from outside (typed address, bookmark, shared link) always asks for a sign-in |
+| 23:43 | Exams: "delete the question bank" moved from the Questions tab to Settings |
+| 23:41 | Chat: direct messages on the site (by username), doctor/student Message button opens a chat, unread badge and notification |
+| 23:37 | Remove "My account" tab from the Content page (password lives in the profile) |
+| 23:32 | Header exit button reads "Exit" followed by the signed-in name |
+| 23:20 | Course picker on the Content and Exams pages (admin and doctors) |
+| 23:17 | Exam settings reduced to two times: multiple choice and true/false (2-option questions); essay settings removed from the page |
+| 23:15 | Exam-finished notifications no longer open the student's attempt (privacy) |
+| 23:11 | Content page restructured into Lectures / Courses / Maintenance / Account tabs (admin and doctors) |
+| 23:07 | Exams page adapts to the uploaded questions: no essay chip, essay settings only when essay questions exist |
+| 23:04 | Home shortcut tiles (admin/doctor and student) in a single row on every screen size |
+| 23:01 | Exams page restructured into Questions / Settings / Results tabs (admin and doctors) |
+| 22:58 | Evaluation page is for the main admin only (hidden from doctors) |
+| 22:43 | Course codes list: uploaded courses fill in names, new courses join the list, import button |
+| 22:37 | Main admin can change own password from the profile; no support button for the admin |
+| 22:28 | Admin/doctor badges page, custom badges with notifications, purge-logs on course delete |
+| 22:14 | Delete any course (even AI / all of them); course-code dropdown fed by an Excel list the admin uploads; no-courses page |
+| 22:05 | Badges (25, days/streak/questions/practice/topics/exams/habits) with page, nav icon and bell notices; mistakes review mode; roomier header |
+| 21:43 | Remove the footer line everywhere and the main-admin password note from the profile page |
+| 21:37 | Eye button on every password field; generated password fills the fields (shown) instead of a separate line |
+| 21:34 | Admin password reset from the support inbox (shown once, works at once, unlocks); icon tooltips on hover |
+| 21:28 | Nav icons: click shows an animated tooltip (name + what it does), AR/EN |
+| 21:24 | Forgot password: strong random password e-mailed with the login-details template (Brevo/Resend/SMTP), saved only after sending |
+| 21:14 | Strong password generator (trigram language model + secrets) on register and profile pages |
+| 21:07 | Login: 5 tries per account with support pop-up (EN/AR); support icon + message form; admin support inbox |
+| 20:54 | Semantic search (LSA) and hybrid TF-IDF+LSA, selectable on Ask page and compared in Evaluation |
+| 18:12 | Remove the course drop-down from the top bar; students switch course with chips on their home page |
+| 18:01 | Add calendar with exam scheduling, notifications bell, profile page with photo, doctors and courses pages; reorder admin cards |
+| 17:39 | Remove page lag: async visit logging, cached Excel reads, faster fade-in, no hover-expanding nav, no web-font import |
+| 17:24 | Admin/doctor home page: doctors, students, traffic, courses (doctor: courses, students, exams, questions); students card shows per-course breakdown |
+| 17:11 | Admin/doctor: delete several lectures (or all) of a course in one step |
+| 17:08 | Doctors sheet section: English only (table headers, title, notes) |
+| 17:02 | Edu theme: light dashboard UI, capsule icon nav, new student home (activity chart, profile ring, week calendar, study plan) |
+| 16:52 | Students choose their courses; each doctor sees only his own students; site-wide UI polish |
+| 16:42 | Student home dashboard, UI polish, exams: live language, essay similarity grading, results history |
+| 16:28 | Fix the new exam parser test |
+| 16:28 | Exams: ignore PDF headers/footers, accept an answer-key-only file |
+| 16:13 | Accounts (username/password, register, forgot, remember me), exams, Arabic translation, materials, admin exports |
+| 15:58 | Admin: hide Google Sheet connection card until key file or SHEET_SYNC=1 |
+
+### Tuesday 10 November 2026
+
+| Time | Change |
+|---|---|
+| 00:50 | Doctors: random password, own password change, private Google Sheet sync (admin only) |
+
+### Monday 09 November 2026
+
+| Time | Change |
+|---|---|
+| 19:45 | Data card: glossary count |
+| 19:41 | README and presentation outline: final version |
+| 19:37 | Start page: type directly in the course field to search |
+| 19:30 | Start page: course picker is a searchable drop-down |
+| 19:25 | Doctor accounts with private codes, per-doctor courses and data, course search drop-down |
+| 19:19 | Remove course name next to the site name in the header |
+| 19:07 | Merge Lecturer and Admin into one Admin area; hide student pages while in Admin |
+| 18:57 | Admin: upload several lecture PDFs at once |
+| 17:32 | Admin: delete lecture / delete course; search-method hint on the Ask page |
+| 17:06 | Add Automotive Engineering course, guest mode, lecturer-only evaluation, admin help |
+| 16:42 | Reset logs.xlsx (empty, with the course column) |
+| 16:42 | Arabic/English interface, dark mode, multi-course support |
+| 16:10 | StudyMate: course study assistant (Flask) + Render deploy config |
+
+## 17. Ownership
 
 Masar is the work of **Ahmed Esam Yahia Hallawa** — idea, design, development, data preparation, models and documents. All rights reserved. The source code and the site's data are private. The documents in this repository may be read; copying, publishing or reusing them or the project's name and logo needs the author's written permission. See [LICENSE](LICENSE).

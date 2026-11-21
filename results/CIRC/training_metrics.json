@@ -1,0 +1,458 @@
+{
+ "course": "CIRC",
+ "train_questions": 336,
+ "test_questions": 84,
+ "slides": 105,
+ "slide_texts_added_to_training": 630,
+ "topics": {
+  "lec1": "Circuit Variables and Basic Laws",
+  "lec2": "Circuit Analysis Techniques and Theorems",
+  "lec3": "Operational Amplifiers",
+  "lec4": "Capacitors, Inductors and First-Order Circuits",
+  "lec5": "Second-Order Circuits",
+  "lec6": "Sinusoidal Steady-State Analysis",
+  "lec7": "AC Power and Three-Phase Circuits"
+ },
+ "classifier": {
+  "nb": {
+   "accuracy": 0.9643,
+   "macro_f1": 0.9637,
+   "macro_precision": 0.967,
+   "macro_recall": 0.9643,
+   "cv5_accuracy": 0.9168,
+   "cv5_std": 0.0331,
+   "per_topic": {
+    "lec1": {
+     "precision": 1.0,
+     "recall": 0.833,
+     "f1": 0.909,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 1.0,
+     "recall": 0.917,
+     "f1": 0.957,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     10,
+     1,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     11,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     12,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     12,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     12,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     12
+    ]
+   ],
+   "errors": [
+    {
+     "question": "A second-order Butterworth filter rolls off at:",
+     "true": "lec3",
+     "pred": "lec5"
+    },
+    {
+     "question": "KCL can be applied to a closed surface. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec2"
+    },
+    {
+     "question": "Power p = v i. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec7"
+    }
+   ]
+  },
+  "logreg": {
+   "accuracy": 0.9286,
+   "macro_f1": 0.9279,
+   "macro_precision": 0.9318,
+   "macro_recall": 0.9286,
+   "cv5_accuracy": 0.8841,
+   "cv5_std": 0.0364,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 1.0,
+     "recall": 0.833,
+     "f1": 0.909,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.857,
+     "recall": 1.0,
+     "f1": 0.923,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     10,
+     1,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     10,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     12,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     11,
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     11,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     12
+    ]
+   ],
+   "errors": [
+    {
+     "question": "Quality factor in terms of bandwidth is:",
+     "true": "lec6",
+     "pred": "lec7"
+    },
+    {
+     "question": "A voltage follower is used to:",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "A second-order Butterworth filter rolls off at:",
+     "true": "lec3",
+     "pred": "lec5"
+    },
+    {
+     "question": "KCL can be applied to a closed surface. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec2"
+    },
+    {
+     "question": "Power p = v i. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec7"
+    },
+    {
+     "question": "R = 10 Ω, L = 10 mH, C = 10 µF gives omega_0 about:",
+     "true": "lec5",
+     "pred": "lec6"
+    }
+   ]
+  },
+  "ens": {
+   "accuracy": 0.9643,
+   "macro_f1": 0.9637,
+   "macro_precision": 0.967,
+   "macro_recall": 0.9643,
+   "cv5_accuracy": 0.9227,
+   "cv5_std": 0.03,
+   "per_topic": {
+    "lec1": {
+     "precision": 1.0,
+     "recall": 0.833,
+     "f1": 0.909,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 1.0,
+     "recall": 0.917,
+     "f1": 0.957,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     10,
+     1,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     11,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     12,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     12,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     12,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     12
+    ]
+   ],
+   "errors": [
+    {
+     "question": "A second-order Butterworth filter rolls off at:",
+     "true": "lec3",
+     "pred": "lec5"
+    },
+    {
+     "question": "KCL can be applied to a closed surface. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec2"
+    },
+    {
+     "question": "Power p = v i. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec7"
+    }
+   ]
+  }
+ },
+ "best_model": "ens",
+ "search": {
+  "questions": 420,
+  "lecture_top1": 0.9595,
+  "lecture_top3": 0.9786,
+  "refused_course_questions": 9,
+  "test_questions": 84,
+  "test_top1": 0.8333,
+  "test_top3": 0.9167,
+  "test_refused": 7,
+  "threshold": {
+   "similarity": 0.13,
+   "coverage": 0.6,
+   "tuned_on": "336 training questions + 20 off-topic"
+  },
+  "offtopic_total": 20,
+  "offtopic_refused": 20
+ },
+ "bank": {
+  "total": 420,
+  "mcq": 259,
+  "tf": 161
+ }
+}

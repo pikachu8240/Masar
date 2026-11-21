@@ -1,0 +1,528 @@
+{
+ "course": "EMCH",
+ "train_questions": 336,
+ "test_questions": 84,
+ "slides": 105,
+ "slide_texts_added_to_training": 630,
+ "topics": {
+  "lec1": "Magnetic Circuits and Electromechanical Energy Conversion",
+  "lec2": "Transformers",
+  "lec3": "DC Machines: Construction and Generators",
+  "lec4": "DC Motors and Speed Control",
+  "lec5": "Three-Phase Induction Motors",
+  "lec6": "Synchronous Machines",
+  "lec7": "Special Machines: BLDC, Stepper, Servo and Motor Selection"
+ },
+ "classifier": {
+  "nb": {
+   "accuracy": 0.9167,
+   "macro_f1": 0.9172,
+   "macro_precision": 0.9261,
+   "macro_recall": 0.9167,
+   "cv5_accuracy": 0.8928,
+   "cv5_std": 0.0346,
+   "per_topic": {
+    "lec1": {
+     "precision": 1.0,
+     "recall": 0.917,
+     "f1": 0.957,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.857,
+     "recall": 1.0,
+     "f1": 0.923,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.8,
+     "recall": 1.0,
+     "f1": 0.889,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 1.0,
+     "recall": 0.833,
+     "f1": 0.909,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 1.0,
+     "recall": 0.917,
+     "f1": 0.957,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     11,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     11,
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     12,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     2,
+     10,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     1,
+     0,
+     1,
+     10,
+     0
+    ],
+    [
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     11
+    ]
+   ],
+   "errors": [
+    {
+     "question": "Efficiency of a DC generator is:",
+     "true": "lec3",
+     "pred": "lec4"
+    },
+    {
+     "question": "Servo motors in robots are usually:",
+     "true": "lec6",
+     "pred": "lec3"
+    },
+    {
+     "question": "f = n P / 120. ( ) True ✔ ( ) False",
+     "true": "lec6",
+     "pred": "lec5"
+    },
+    {
+     "question": "Induction motors are popular because they are:",
+     "true": "lec5",
+     "pred": "lec4"
+    },
+    {
+     "question": "Maximum torque is proportional to:",
+     "true": "lec5",
+     "pred": "lec4"
+    },
+    {
+     "question": "Core loss includes copper losses. ( ) True ( ) False ✔",
+     "true": "lec1",
+     "pred": "lec2"
+    },
+    {
+     "question": "FOC transforms currents using:",
+     "true": "lec7",
+     "pred": "lec2"
+    }
+   ]
+  },
+  "logreg": {
+   "accuracy": 0.869,
+   "macro_f1": 0.8708,
+   "macro_precision": 0.8839,
+   "macro_recall": 0.869,
+   "cv5_accuracy": 0.881,
+   "cv5_std": 0.0309,
+   "per_topic": {
+    "lec1": {
+     "precision": 1.0,
+     "recall": 0.917,
+     "f1": 0.957,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.857,
+     "recall": 1.0,
+     "f1": 0.923,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 1.0,
+     "recall": 0.833,
+     "f1": 0.909,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.688,
+     "recall": 0.917,
+     "f1": 0.786,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.833,
+     "recall": 0.833,
+     "f1": 0.833,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.9,
+     "recall": 0.75,
+     "f1": 0.818,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     11,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     10,
+     1,
+     0,
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     11,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     2,
+     10,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     10,
+     1
+    ],
+    [
+     0,
+     1,
+     0,
+     2,
+     0,
+     0,
+     9
+    ]
+   ],
+   "errors": [
+    {
+     "question": "Starting current is limited by back-EMF. ( ) True ( ) False ✔",
+     "true": "lec4",
+     "pred": "lec5"
+    },
+    {
+     "question": "Servo motors in robots are usually:",
+     "true": "lec6",
+     "pred": "lec7"
+    },
+    {
+     "question": "Brushed DC motors are maintenance-free. ( ) True ( ) False ✔",
+     "true": "lec7",
+     "pred": "lec4"
+    },
+    {
+     "question": "f = n P / 120. ( ) True ✔ ( ) False",
+     "true": "lec6",
+     "pred": "lec5"
+    },
+    {
+     "question": "In the equivalent circuit, mechanical load appears as:",
+     "true": "lec5",
+     "pred": "lec4"
+    },
+    {
+     "question": "Induction motors are popular because they are:",
+     "true": "lec5",
+     "pred": "lec4"
+    },
+    {
+     "question": "Output power in that case is:",
+     "true": "lec3",
+     "pred": "lec6"
+    },
+    {
+     "question": "In SI units, torque constant and back-EMF constant of a PM DC motor are:",
+     "true": "lec3",
+     "pred": "lec4"
+    },
+    {
+     "question": "Brushed DC motors' main drawback is:",
+     "true": "lec7",
+     "pred": "lec4"
+    },
+    {
+     "question": "Core loss includes copper losses. ( ) True ( ) False ✔",
+     "true": "lec1",
+     "pred": "lec2"
+    },
+    {
+     "question": "FOC transforms currents using:",
+     "true": "lec7",
+     "pred": "lec2"
+    }
+   ]
+  },
+  "ens": {
+   "accuracy": 0.9048,
+   "macro_f1": 0.9059,
+   "macro_precision": 0.9179,
+   "macro_recall": 0.9048,
+   "cv5_accuracy": 0.8899,
+   "cv5_std": 0.0334,
+   "per_topic": {
+    "lec1": {
+     "precision": 1.0,
+     "recall": 0.917,
+     "f1": 0.957,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.857,
+     "recall": 1.0,
+     "f1": 0.923,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 1.0,
+     "recall": 0.917,
+     "f1": 0.957,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.75,
+     "recall": 1.0,
+     "f1": 0.857,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 1.0,
+     "recall": 0.833,
+     "f1": 0.909,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     11,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     11,
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     12,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     2,
+     10,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     10,
+     1
+    ],
+    [
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     10
+    ]
+   ],
+   "errors": [
+    {
+     "question": "Efficiency of a DC generator is:",
+     "true": "lec3",
+     "pred": "lec4"
+    },
+    {
+     "question": "Servo motors in robots are usually:",
+     "true": "lec6",
+     "pred": "lec7"
+    },
+    {
+     "question": "f = n P / 120. ( ) True ✔ ( ) False",
+     "true": "lec6",
+     "pred": "lec5"
+    },
+    {
+     "question": "Induction motors are popular because they are:",
+     "true": "lec5",
+     "pred": "lec4"
+    },
+    {
+     "question": "Maximum torque is proportional to:",
+     "true": "lec5",
+     "pred": "lec4"
+    },
+    {
+     "question": "Brushed DC motors' main drawback is:",
+     "true": "lec7",
+     "pred": "lec4"
+    },
+    {
+     "question": "Core loss includes copper losses. ( ) True ( ) False ✔",
+     "true": "lec1",
+     "pred": "lec2"
+    },
+    {
+     "question": "FOC transforms currents using:",
+     "true": "lec7",
+     "pred": "lec2"
+    }
+   ]
+  }
+ },
+ "best_model": "nb",
+ "search": {
+  "questions": 420,
+  "lecture_top1": 0.9571,
+  "lecture_top3": 0.9905,
+  "refused_course_questions": 4,
+  "test_questions": 84,
+  "test_top1": 0.8214,
+  "test_top3": 0.9762,
+  "test_refused": 2,
+  "threshold": {
+   "similarity": 0.13,
+   "coverage": 0.3,
+   "tuned_on": "336 training questions + 20 off-topic"
+  },
+  "offtopic_total": 20,
+  "offtopic_refused": 19
+ },
+ "bank": {
+  "total": 420,
+  "mcq": 259,
+  "tf": 161
+ }
+}

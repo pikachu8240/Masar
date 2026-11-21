@@ -1,0 +1,498 @@
+{
+ "course": "SENA",
+ "train_questions": 336,
+ "test_questions": 84,
+ "slides": 105,
+ "slide_texts_added_to_training": 630,
+ "topics": {
+  "lec1": "Measurement Fundamentals and Sensor Characteristics",
+  "lec2": "Position, Displacement and Motion Sensors",
+  "lec3": "Force, Strain, Pressure, Temperature and Flow Sensors",
+  "lec4": "Signal Conditioning and Data Acquisition",
+  "lec5": "Electric Actuators: DC, Brushless, Stepper and AC Motors",
+  "lec6": "Fluid Power Actuators: Hydraulics and Pneumatics",
+  "lec7": "Smart Materials, MEMS and Actuator Selection"
+ },
+ "classifier": {
+  "nb": {
+   "accuracy": 0.9405,
+   "macro_f1": 0.9404,
+   "macro_precision": 0.9421,
+   "macro_recall": 0.9405,
+   "cv5_accuracy": 0.9046,
+   "cv5_std": 0.031,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.846,
+     "recall": 0.917,
+     "f1": 0.88,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 1.0,
+     "recall": 0.917,
+     "f1": 0.957,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     11,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     11,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     11,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     12,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     12,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     12,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     10
+    ]
+   ],
+   "errors": [
+    {
+     "question": "A resolver output consists of:",
+     "true": "lec2",
+     "pred": "lec1"
+    },
+    {
+     "question": "Energy harvesters can convert vibration into electrical energy. ( ) True ✔ ( ) False",
+     "true": "lec7",
+     "pred": "lec1"
+    },
+    {
+     "question": "Piezoelectric sensors require which amplifier?",
+     "true": "lec3",
+     "pred": "lec7"
+    },
+    {
+     "question": "A null-type (balance) measurement, like a Wheatstone bridge at balance, is:",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "SMA actuators are the best choice for high-frequency vibration control. ( ) True ( ) False ✔",
+     "true": "lec7",
+     "pred": "lec5"
+    }
+   ]
+  },
+  "logreg": {
+   "accuracy": 0.8929,
+   "macro_f1": 0.8944,
+   "macro_precision": 0.9055,
+   "macro_recall": 0.8929,
+   "cv5_accuracy": 0.9047,
+   "cv5_std": 0.0245,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.667,
+     "recall": 0.833,
+     "f1": 0.741,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 1.0,
+     "recall": 0.75,
+     "f1": 0.857,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 1.0,
+     "recall": 0.917,
+     "f1": 0.957,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     10,
+     0,
+     1,
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     9,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     10,
+     0,
+     0,
+     1,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     12,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     0,
+     11,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     12,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     11
+    ]
+   ],
+   "errors": [
+    {
+     "question": "Quadrature channels A and B are offset by 90° in order to:",
+     "true": "lec2",
+     "pred": "lec1"
+    },
+    {
+     "question": "A servo drive typically includes:",
+     "true": "lec5",
+     "pred": "lec1"
+    },
+    {
+     "question": "A resolver output consists of:",
+     "true": "lec2",
+     "pred": "lec1"
+    },
+    {
+     "question": "An LVDT output is:",
+     "true": "lec2",
+     "pred": "lec1"
+    },
+    {
+     "question": "Energy harvesters can convert vibration into electrical energy. ( ) True ✔ ( ) False",
+     "true": "lec7",
+     "pred": "lec1"
+    },
+    {
+     "question": "A rotameter measures flow using:",
+     "true": "lec3",
+     "pred": "lec6"
+    },
+    {
+     "question": "Piezoelectric sensors require which amplifier?",
+     "true": "lec3",
+     "pred": "lec7"
+    },
+    {
+     "question": "A null-type (balance) measurement, like a Wheatstone bridge at balance, is:",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "Signal-to-noise ratio is often expressed in decibels. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec4"
+    }
+   ]
+  },
+  "ens": {
+   "accuracy": 0.9286,
+   "macro_f1": 0.928,
+   "macro_precision": 0.9301,
+   "macro_recall": 0.9286,
+   "cv5_accuracy": 0.9046,
+   "cv5_std": 0.0363,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.846,
+     "recall": 0.917,
+     "f1": 0.88,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 1.0,
+     "recall": 0.917,
+     "f1": 0.957,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     11,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     11,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     10,
+     0,
+     0,
+     1,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     12,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     12,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     12,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     10
+    ]
+   ],
+   "errors": [
+    {
+     "question": "A resolver output consists of:",
+     "true": "lec2",
+     "pred": "lec1"
+    },
+    {
+     "question": "Energy harvesters can convert vibration into electrical energy. ( ) True ✔ ( ) False",
+     "true": "lec7",
+     "pred": "lec1"
+    },
+    {
+     "question": "A rotameter measures flow using:",
+     "true": "lec3",
+     "pred": "lec6"
+    },
+    {
+     "question": "Piezoelectric sensors require which amplifier?",
+     "true": "lec3",
+     "pred": "lec7"
+    },
+    {
+     "question": "A null-type (balance) measurement, like a Wheatstone bridge at balance, is:",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "SMA actuators are the best choice for high-frequency vibration control. ( ) True ( ) False ✔",
+     "true": "lec7",
+     "pred": "lec5"
+    }
+   ]
+  }
+ },
+ "best_model": "logreg",
+ "search": {
+  "questions": 420,
+  "lecture_top1": 0.9667,
+  "lecture_top3": 0.9833,
+  "refused_course_questions": 4,
+  "test_questions": 84,
+  "test_top1": 0.869,
+  "test_top3": 0.9405,
+  "test_refused": 2,
+  "threshold": {
+   "similarity": 0.11,
+   "coverage": 0.4,
+   "tuned_on": "336 training questions + 20 off-topic"
+  },
+  "offtopic_total": 20,
+  "offtopic_refused": 19
+ },
+ "bank": {
+  "total": 420,
+  "mcq": 259,
+  "tf": 161
+ }
+}

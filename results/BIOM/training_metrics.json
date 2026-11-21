@@ -1,0 +1,513 @@
+{
+ "course": "BIOM",
+ "train_questions": 336,
+ "test_questions": 84,
+ "slides": 105,
+ "slide_texts_added_to_training": 630,
+ "topics": {
+  "lec1": "Introduction to Biomechatronics",
+  "lec2": "Biomechanics of Human Movement and Gait",
+  "lec3": "Muscle Physiology and Bio-Inspired Actuators",
+  "lec4": "Biosignals, Sensors and Signal Processing",
+  "lec5": "Prosthetic Limbs: Design and Control",
+  "lec6": "Exoskeletons, Orthoses and Rehabilitation Robotics",
+  "lec7": "Neural Interfaces, Medical Device Regulation and Future Directions"
+ },
+ "classifier": {
+  "nb": {
+   "accuracy": 0.9167,
+   "macro_f1": 0.9159,
+   "macro_precision": 0.9208,
+   "macro_recall": 0.9167,
+   "cv5_accuracy": 0.8721,
+   "cv5_std": 0.0257,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.833,
+     "recall": 0.833,
+     "f1": 0.833,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 1.0,
+     "recall": 0.917,
+     "f1": 0.957,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.857,
+     "recall": 1.0,
+     "f1": 0.923,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 1.0,
+     "recall": 0.833,
+     "f1": 0.909,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     10,
+     0,
+     0,
+     0,
+     0,
+     1,
+     1
+    ],
+    [
+     0,
+     11,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     10,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     12,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     1,
+     1,
+     10,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     12,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     12
+    ]
+   ],
+   "errors": [
+    {
+     "question": "A cochlear implant electrode array is placed in:",
+     "true": "lec1",
+     "pred": "lec7"
+    },
+    {
+     "question": "The K-level classification of amputees describes:",
+     "true": "lec5",
+     "pred": "lec4"
+    },
+    {
+     "question": "A common benchmark for exoskeleton performance is reduction in:",
+     "true": "lec1",
+     "pred": "lec6"
+    },
+    {
+     "question": "Agonist-antagonist myoneural interface (AMI) aims to:",
+     "true": "lec5",
+     "pred": "lec3"
+    },
+    {
+     "question": "Hydrogel actuators respond to stimuli such as:",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "Smooth muscle is under voluntary control. ( ) True ( ) False ✔",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "Inertial sensor-based gait analysis advantages include:",
+     "true": "lec2",
+     "pred": "lec4"
+    }
+   ]
+  },
+  "logreg": {
+   "accuracy": 0.8929,
+   "macro_f1": 0.8926,
+   "macro_precision": 0.897,
+   "macro_recall": 0.8929,
+   "cv5_accuracy": 0.8691,
+   "cv5_std": 0.0141,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.75,
+     "recall": 0.75,
+     "f1": 0.75,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.846,
+     "recall": 0.917,
+     "f1": 0.88,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 1.0,
+     "recall": 0.833,
+     "f1": 0.909,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.857,
+     "recall": 1.0,
+     "f1": 0.923,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     9,
+     0,
+     0,
+     0,
+     0,
+     2,
+     1
+    ],
+    [
+     1,
+     10,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     12,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     1,
+     0,
+     11,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     1,
+     10,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     12,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     11
+    ]
+   ],
+   "errors": [
+    {
+     "question": "Gait analysis has no clinical use. ( ) True ( ) False ✔",
+     "true": "lec2",
+     "pred": "lec1"
+    },
+    {
+     "question": "A cochlear implant electrode array is placed in:",
+     "true": "lec1",
+     "pred": "lec7"
+    },
+    {
+     "question": "The K-level classification of amputees describes:",
+     "true": "lec5",
+     "pred": "lec4"
+    },
+    {
+     "question": "Pressure insoles in gait devices detect:",
+     "true": "lec4",
+     "pred": "lec2"
+    },
+    {
+     "question": "A common benchmark for exoskeleton performance is reduction in:",
+     "true": "lec1",
+     "pred": "lec6"
+    },
+    {
+     "question": "Clinical evaluation compiles evidence on a device's safety and performance. ( ) True ✔ ( ) False",
+     "true": "lec7",
+     "pred": "lec1"
+    },
+    {
+     "question": "Agonist-antagonist myoneural interface (AMI) aims to:",
+     "true": "lec5",
+     "pred": "lec1"
+    },
+    {
+     "question": "A powered wheelchair cannot be considered an assistive technology. ( ) True ( ) False ✔",
+     "true": "lec1",
+     "pred": "lec6"
+    },
+    {
+     "question": "Inertial sensor-based gait analysis advantages include:",
+     "true": "lec2",
+     "pred": "lec4"
+    }
+   ]
+  },
+  "ens": {
+   "accuracy": 0.9167,
+   "macro_f1": 0.9159,
+   "macro_precision": 0.9208,
+   "macro_recall": 0.9167,
+   "cv5_accuracy": 0.875,
+   "cv5_std": 0.0177,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.833,
+     "recall": 0.833,
+     "f1": 0.833,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 1.0,
+     "recall": 0.917,
+     "f1": 0.957,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.857,
+     "recall": 1.0,
+     "f1": 0.923,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 1.0,
+     "recall": 0.833,
+     "f1": 0.909,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     10,
+     0,
+     0,
+     0,
+     0,
+     1,
+     1
+    ],
+    [
+     0,
+     11,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     10,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     12,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     1,
+     1,
+     10,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     12,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     12
+    ]
+   ],
+   "errors": [
+    {
+     "question": "A cochlear implant electrode array is placed in:",
+     "true": "lec1",
+     "pred": "lec7"
+    },
+    {
+     "question": "The K-level classification of amputees describes:",
+     "true": "lec5",
+     "pred": "lec4"
+    },
+    {
+     "question": "A common benchmark for exoskeleton performance is reduction in:",
+     "true": "lec1",
+     "pred": "lec6"
+    },
+    {
+     "question": "Agonist-antagonist myoneural interface (AMI) aims to:",
+     "true": "lec5",
+     "pred": "lec3"
+    },
+    {
+     "question": "Hydrogel actuators respond to stimuli such as:",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "Smooth muscle is under voluntary control. ( ) True ( ) False ✔",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "Inertial sensor-based gait analysis advantages include:",
+     "true": "lec2",
+     "pred": "lec4"
+    }
+   ]
+  }
+ },
+ "best_model": "ens",
+ "search": {
+  "questions": 420,
+  "lecture_top1": 0.9595,
+  "lecture_top3": 0.9786,
+  "refused_course_questions": 7,
+  "test_questions": 84,
+  "test_top1": 0.8095,
+  "test_top3": 0.9048,
+  "test_refused": 6,
+  "threshold": {
+   "similarity": 0.09,
+   "coverage": 0.6,
+   "tuned_on": "336 training questions + 20 off-topic"
+  },
+  "offtopic_total": 20,
+  "offtopic_refused": 19
+ },
+ "bank": {
+  "total": 420,
+  "mcq": 259,
+  "tf": 161
+ }
+}

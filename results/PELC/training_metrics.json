@@ -1,0 +1,623 @@
+{
+ "course": "PELC",
+ "train_questions": 336,
+ "test_questions": 84,
+ "slides": 105,
+ "slide_texts_added_to_training": 630,
+ "topics": {
+  "lec1": "Introduction to Power Electronics and Power Semiconductor Devices",
+  "lec2": "Diode Rectifiers",
+  "lec3": "Phase-Controlled Rectifiers",
+  "lec4": "DC-DC Converters: Buck, Boost and Buck-Boost",
+  "lec5": "Isolated DC-DC Converters and Switch-Mode Power Supplies",
+  "lec6": "DC-AC Inverters and PWM Techniques",
+  "lec7": "Motor Drives, Gate Drivers, Thermal Design and Applications"
+ },
+ "classifier": {
+  "nb": {
+   "accuracy": 0.7857,
+   "macro_f1": 0.7783,
+   "macro_precision": 0.8152,
+   "macro_recall": 0.7857,
+   "cv5_accuracy": 0.7978,
+   "cv5_std": 0.0622,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.583,
+     "recall": 0.583,
+     "f1": 0.583,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.611,
+     "recall": 0.917,
+     "f1": 0.733,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.833,
+     "recall": 0.833,
+     "f1": 0.833,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.846,
+     "recall": 0.917,
+     "f1": 0.88,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 1.0,
+     "recall": 0.417,
+     "f1": 0.588,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     7,
+     0,
+     3,
+     2,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     11,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     1,
+     0,
+     10,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     2,
+     0,
+     10,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     1,
+     0,
+     0,
+     11,
+     0
+    ],
+    [
+     4,
+     0,
+     1,
+     0,
+     0,
+     2,
+     5
+    ]
+   ],
+   "errors": [
+    {
+     "question": "A thyristor (SCR) can be turned on by:",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "The Ćuk converter uses a capacitor for energy transfer. ( ) True ✔ ( ) False",
+     "true": "lec4",
+     "pred": "lec5"
+    },
+    {
+     "question": "Sine-wave filters at drive outputs are used to:",
+     "true": "lec7",
+     "pred": "lec6"
+    },
+    {
+     "question": "The dual active bridge (DAB) converter is:",
+     "true": "lec5",
+     "pred": "lec3"
+    },
+    {
+     "question": "A snubber circuit is used to:",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "Soft-start reduces inrush current at power-up. ( ) True ✔ ( ) False",
+     "true": "lec4",
+     "pred": "lec2"
+    },
+    {
+     "question": "A freewheeling diode is used to:",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "Conduction losses depend on current flowing through the device. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec4"
+    },
+    {
+     "question": "Power electronics is a key enabling technology for renewable energy integration. ( ) True ✔ ( ) False",
+     "true": "lec7",
+     "pred": "lec1"
+    },
+    {
+     "question": "A DC motor drive using an H-bridge can provide:",
+     "true": "lec7",
+     "pred": "lec3"
+    },
+    {
+     "question": "Inverters for induction heating operate at:",
+     "true": "lec6",
+     "pred": "lec3"
+    },
+    {
+     "question": "GTO thyristors differ from SCRs in that they can be:",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "Drive switching frequency has no effect on motor acoustic noise. ( ) True ( ) False ✔",
+     "true": "lec7",
+     "pred": "lec1"
+    },
+    {
+     "question": "Long motor cables can cause voltage overshoot at motor terminals. ( ) True ✔ ( ) False",
+     "true": "lec7",
+     "pred": "lec6"
+    },
+    {
+     "question": "Renewable energy systems use power electronics for:",
+     "true": "lec7",
+     "pred": "lec1"
+    }
+   ]
+  },
+  "logreg": {
+   "accuracy": 0.7976,
+   "macro_f1": 0.7899,
+   "macro_precision": 0.8095,
+   "macro_recall": 0.7976,
+   "cv5_accuracy": 0.7711,
+   "cv5_std": 0.0633,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.533,
+     "recall": 0.667,
+     "f1": 0.593,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.857,
+     "recall": 1.0,
+     "f1": 0.923,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.769,
+     "recall": 0.833,
+     "f1": 0.8,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.9,
+     "recall": 0.75,
+     "f1": 0.818,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.857,
+     "recall": 1.0,
+     "f1": 0.923,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.833,
+     "recall": 0.417,
+     "f1": 0.556,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     8,
+     0,
+     2,
+     1,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     10,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     0,
+     9,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     12,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     0,
+     0,
+     11,
+     0
+    ],
+    [
+     5,
+     0,
+     1,
+     0,
+     0,
+     1,
+     5
+    ]
+   ],
+   "errors": [
+    {
+     "question": "A thyristor (SCR) can be turned on by:",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "The Ćuk converter uses a capacitor for energy transfer. ( ) True ✔ ( ) False",
+     "true": "lec4",
+     "pred": "lec5"
+    },
+    {
+     "question": "Sine-wave filters at drive outputs are used to:",
+     "true": "lec7",
+     "pred": "lec6"
+    },
+    {
+     "question": "Higher inductance increases inductor ripple current. ( ) True ( ) False ✔",
+     "true": "lec4",
+     "pred": "lec2"
+    },
+    {
+     "question": "A snubber circuit is used to:",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "Soft-start reduces inrush current at power-up. ( ) True ✔ ( ) False",
+     "true": "lec4",
+     "pred": "lec2"
+    },
+    {
+     "question": "Shoot-through occurs when both switches of a leg are on. ( ) True ✔ ( ) False",
+     "true": "lec6",
+     "pred": "lec1"
+    },
+    {
+     "question": "Conduction losses depend on current flowing through the device. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec4"
+    },
+    {
+     "question": "Power module packages integrate:",
+     "true": "lec7",
+     "pred": "lec1"
+    },
+    {
+     "question": "Power electronics is a key enabling technology for renewable energy integration. ( ) True ✔ ( ) False",
+     "true": "lec7",
+     "pred": "lec1"
+    },
+    {
+     "question": "A DC motor drive using an H-bridge can provide:",
+     "true": "lec7",
+     "pred": "lec3"
+    },
+    {
+     "question": "GTO thyristors differ from SCRs in that they can be:",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "A dual converter is used for:",
+     "true": "lec3",
+     "pred": "lec5"
+    },
+    {
+     "question": "Long motor cables can cause voltage overshoot at motor terminals. ( ) True ✔ ( ) False",
+     "true": "lec7",
+     "pred": "lec1"
+    },
+    {
+     "question": "Renewable energy systems use power electronics for:",
+     "true": "lec7",
+     "pred": "lec1"
+    }
+   ]
+  },
+  "ens": {
+   "accuracy": 0.7976,
+   "macro_f1": 0.7931,
+   "macro_precision": 0.8227,
+   "macro_recall": 0.7976,
+   "cv5_accuracy": 0.7889,
+   "cv5_std": 0.0598,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.636,
+     "recall": 0.583,
+     "f1": 0.609,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.611,
+     "recall": 0.917,
+     "f1": 0.733,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.833,
+     "recall": 0.833,
+     "f1": 0.833,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.846,
+     "recall": 0.917,
+     "f1": 0.88,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 1.0,
+     "recall": 0.5,
+     "f1": 0.667,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     7,
+     0,
+     3,
+     2,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     11,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     1,
+     0,
+     10,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     2,
+     0,
+     10,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     1,
+     0,
+     0,
+     11,
+     0
+    ],
+    [
+     3,
+     0,
+     1,
+     0,
+     0,
+     2,
+     6
+    ]
+   ],
+   "errors": [
+    {
+     "question": "A thyristor (SCR) can be turned on by:",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "The Ćuk converter uses a capacitor for energy transfer. ( ) True ✔ ( ) False",
+     "true": "lec4",
+     "pred": "lec5"
+    },
+    {
+     "question": "Sine-wave filters at drive outputs are used to:",
+     "true": "lec7",
+     "pred": "lec6"
+    },
+    {
+     "question": "The dual active bridge (DAB) converter is:",
+     "true": "lec5",
+     "pred": "lec3"
+    },
+    {
+     "question": "A snubber circuit is used to:",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "Soft-start reduces inrush current at power-up. ( ) True ✔ ( ) False",
+     "true": "lec4",
+     "pred": "lec2"
+    },
+    {
+     "question": "A freewheeling diode is used to:",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "Conduction losses depend on current flowing through the device. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec4"
+    },
+    {
+     "question": "Power electronics is a key enabling technology for renewable energy integration. ( ) True ✔ ( ) False",
+     "true": "lec7",
+     "pred": "lec1"
+    },
+    {
+     "question": "A DC motor drive using an H-bridge can provide:",
+     "true": "lec7",
+     "pred": "lec3"
+    },
+    {
+     "question": "Inverters for induction heating operate at:",
+     "true": "lec6",
+     "pred": "lec3"
+    },
+    {
+     "question": "GTO thyristors differ from SCRs in that they can be:",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "Long motor cables can cause voltage overshoot at motor terminals. ( ) True ✔ ( ) False",
+     "true": "lec7",
+     "pred": "lec6"
+    },
+    {
+     "question": "Renewable energy systems use power electronics for:",
+     "true": "lec7",
+     "pred": "lec1"
+    },
+    {
+     "question": "Dual active bridge converters are unidirectional. ( ) True ( ) False ✔",
+     "true": "lec5",
+     "pred": "lec3"
+    }
+   ]
+  }
+ },
+ "best_model": "nb",
+ "search": {
+  "questions": 420,
+  "lecture_top1": 0.9476,
+  "lecture_top3": 0.9833,
+  "refused_course_questions": 4,
+  "test_questions": 84,
+  "test_top1": 0.75,
+  "test_top3": 0.9167,
+  "test_refused": 4,
+  "threshold": {
+   "similarity": 0.11,
+   "coverage": 0.6,
+   "tuned_on": "336 training questions + 20 off-topic"
+  },
+  "offtopic_total": 20,
+  "offtopic_refused": 20
+ },
+ "bank": {
+  "total": 420,
+  "mcq": 259,
+  "tf": 161
+ }
+}

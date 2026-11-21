@@ -1,0 +1,558 @@
+{
+ "course": "EPLC",
+ "train_questions": 336,
+ "test_questions": 84,
+ "slides": 105,
+ "slide_texts_added_to_training": 630,
+ "topics": {
+  "lec1": "Introduction to Embedded Systems and Microcontroller Architecture",
+  "lec2": "Embedded C Programming, GPIO, Interrupts and Timers",
+  "lec3": "Peripherals and Communication Interfaces",
+  "lec4": "Real-Time Operating Systems and Embedded Software Design",
+  "lec5": "Programmable Logic Controller Fundamentals",
+  "lec6": "PLC Programming with IEC 61131-3",
+  "lec7": "Industrial Networks, SCADA, Safety and Industry 4.0"
+ },
+ "classifier": {
+  "nb": {
+   "accuracy": 0.8929,
+   "macro_f1": 0.8925,
+   "macro_precision": 0.9002,
+   "macro_recall": 0.8929,
+   "cv5_accuracy": 0.8274,
+   "cv5_std": 0.0446,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.75,
+     "recall": 1.0,
+     "f1": 0.857,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.9,
+     "recall": 0.75,
+     "f1": 0.818,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     10,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     12,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     9,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     1,
+     0,
+     0,
+     10,
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     11,
+     0
+    ],
+    [
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     11
+    ]
+   ],
+   "errors": [
+    {
+     "question": "Alarm floods can overwhelm operators. ( ) True ✔ ( ) False",
+     "true": "lec7",
+     "pred": "lec2"
+    },
+    {
+     "question": "A data block (DB) in Siemens PLCs is used to:",
+     "true": "lec6",
+     "pred": "lec5"
+    },
+    {
+     "question": "An interrupt vector table is typically located at:",
+     "true": "lec1",
+     "pred": "lec2"
+    },
+    {
+     "question": "Version control systems like Git are useful for firmware development. ( ) True ✔ ( ) False",
+     "true": "lec4",
+     "pred": "lec1"
+    },
+    {
+     "question": "Thermal overload relays protect motors against:",
+     "true": "lec5",
+     "pred": "lec2"
+    },
+    {
+     "question": "Jitter in periodic tasks refers to:",
+     "true": "lec4",
+     "pred": "lec2"
+    },
+    {
+     "question": "In IEC 61131-3 addressing, %QX0.0 refers to:",
+     "true": "lec5",
+     "pred": "lec6"
+    },
+    {
+     "question": "ISO 26262 is a functional safety standard for:",
+     "true": "lec4",
+     "pred": "lec7"
+    },
+    {
+     "question": "Embedded software is also called firmware. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec4"
+    }
+   ]
+  },
+  "logreg": {
+   "accuracy": 0.8333,
+   "macro_f1": 0.8276,
+   "macro_precision": 0.835,
+   "macro_recall": 0.8333,
+   "cv5_accuracy": 0.8451,
+   "cv5_std": 0.0388,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.75,
+     "recall": 0.5,
+     "f1": 0.6,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.75,
+     "recall": 1.0,
+     "f1": 0.857,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.769,
+     "recall": 0.833,
+     "f1": 0.8,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.833,
+     "recall": 0.833,
+     "f1": 0.833,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     6,
+     3,
+     0,
+     3,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     11,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     10,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     1,
+     0,
+     0,
+     10,
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     11,
+     0
+    ],
+    [
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     10
+    ]
+   ],
+   "errors": [
+    {
+     "question": "The ESP32 is notable for integrating:",
+     "true": "lec1",
+     "pred": "lec2"
+    },
+    {
+     "question": "Alarm floods can overwhelm operators. ( ) True ✔ ( ) False",
+     "true": "lec7",
+     "pred": "lec3"
+    },
+    {
+     "question": "A data block (DB) in Siemens PLCs is used to:",
+     "true": "lec6",
+     "pred": "lec5"
+    },
+    {
+     "question": "An interrupt vector table is typically located at:",
+     "true": "lec1",
+     "pred": "lec2"
+    },
+    {
+     "question": "Version control systems like Git are useful for firmware development. ( ) True ✔ ( ) False",
+     "true": "lec4",
+     "pred": "lec1"
+    },
+    {
+     "question": "Wi-Fi modules such as ESP8266 connect MCUs to:",
+     "true": "lec3",
+     "pred": "lec5"
+    },
+    {
+     "question": "Thermal overload relays protect motors against:",
+     "true": "lec5",
+     "pred": "lec2"
+    },
+    {
+     "question": "EEPROM is commonly used to store:",
+     "true": "lec1",
+     "pred": "lec4"
+    },
+    {
+     "question": "In IEC 61131-3 addressing, %QX0.0 refers to:",
+     "true": "lec5",
+     "pred": "lec6"
+    },
+    {
+     "question": "Embedded systems are never subject to real-time constraints. ( ) True ( ) False ✔",
+     "true": "lec1",
+     "pred": "lec4"
+    },
+    {
+     "question": "An HMI allows operators to:",
+     "true": "lec7",
+     "pred": "lec1"
+    },
+    {
+     "question": "ISO 26262 is a functional safety standard for:",
+     "true": "lec4",
+     "pred": "lec7"
+    },
+    {
+     "question": "JTAG is primarily used for:",
+     "true": "lec1",
+     "pred": "lec2"
+    },
+    {
+     "question": "Embedded software is also called firmware. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec4"
+    }
+   ]
+  },
+  "ens": {
+   "accuracy": 0.8929,
+   "macro_f1": 0.8925,
+   "macro_precision": 0.9002,
+   "macro_recall": 0.8929,
+   "cv5_accuracy": 0.8393,
+   "cv5_std": 0.0416,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.75,
+     "recall": 1.0,
+     "f1": 0.857,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.9,
+     "recall": 0.75,
+     "f1": 0.818,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     10,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     12,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     9,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     1,
+     0,
+     0,
+     10,
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     11,
+     0
+    ],
+    [
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     11
+    ]
+   ],
+   "errors": [
+    {
+     "question": "Alarm floods can overwhelm operators. ( ) True ✔ ( ) False",
+     "true": "lec7",
+     "pred": "lec2"
+    },
+    {
+     "question": "A data block (DB) in Siemens PLCs is used to:",
+     "true": "lec6",
+     "pred": "lec5"
+    },
+    {
+     "question": "An interrupt vector table is typically located at:",
+     "true": "lec1",
+     "pred": "lec2"
+    },
+    {
+     "question": "Version control systems like Git are useful for firmware development. ( ) True ✔ ( ) False",
+     "true": "lec4",
+     "pred": "lec1"
+    },
+    {
+     "question": "Thermal overload relays protect motors against:",
+     "true": "lec5",
+     "pred": "lec2"
+    },
+    {
+     "question": "Jitter in periodic tasks refers to:",
+     "true": "lec4",
+     "pred": "lec2"
+    },
+    {
+     "question": "In IEC 61131-3 addressing, %QX0.0 refers to:",
+     "true": "lec5",
+     "pred": "lec6"
+    },
+    {
+     "question": "ISO 26262 is a functional safety standard for:",
+     "true": "lec4",
+     "pred": "lec7"
+    },
+    {
+     "question": "Embedded software is also called firmware. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec4"
+    }
+   ]
+  }
+ },
+ "best_model": "logreg",
+ "search": {
+  "questions": 420,
+  "lecture_top1": 0.9524,
+  "lecture_top3": 0.9738,
+  "refused_course_questions": 7,
+  "test_questions": 84,
+  "test_top1": 0.7738,
+  "test_top3": 0.869,
+  "test_refused": 7,
+  "threshold": {
+   "similarity": 0.02,
+   "coverage": 0.7,
+   "tuned_on": "336 training questions + 20 off-topic"
+  },
+  "offtopic_total": 20,
+  "offtopic_refused": 18
+ },
+ "bank": {
+  "total": 420,
+  "mcq": 259,
+  "tf": 161
+ }
+}

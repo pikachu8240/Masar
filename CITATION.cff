@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+title: "Masar (مسار) — Course Study Assistant"
+message: "If you refer to this work, cite it as below. Any use beyond reading needs the author's written permission (see LICENSE)."
+type: software
+authors:
+  - family-names: "Hallawa"
+    given-names: "Ahmed Esam Yahia"
+repository: "https://github.com/pikachu8240/Masar"
+url: "https://ahmedhallawa.pythonanywhere.com"
+license-url: "https://github.com/pikachu8240/Masar/blob/main/LICENSE"
+date-released: 2026-11-21
+version: "2"

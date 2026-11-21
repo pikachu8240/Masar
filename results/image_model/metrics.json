@@ -1,0 +1,42 @@
+{
+ "slides": 2100,
+ "courses": 20,
+ "lectures": 140,
+ "train": 1478,
+ "validation": 202,
+ "test": 420,
+ "fusion_weight": 0.1,
+ "validation_accuracy": 0.8911,
+ "table": [
+  {
+   "name": "November: CNN only, AI course (7 lectures, 250 pictures)",
+   "course": "\u2014",
+   "lecture": "26%",
+   "used": false
+  },
+  {
+   "name": "CNN only (MobileNetV2 transfer learning)",
+   "course": "19.8%",
+   "lecture": "4.5%",
+   "used": false
+  },
+  {
+   "name": "OCR + text model",
+   "course": "93.8%",
+   "lecture": "89.8%",
+   "used": false
+  },
+  {
+   "name": "CNN + OCR combined (w = 0.1)",
+   "course": "93.6%",
+   "lecture": "90.0%",
+   "used": true
+  }
+ ],
+ "figures": [
+  "accuracy.png",
+  "confusion_course_combined.png",
+  "confusion_course_cnn.png"
+ ],
+ "method": "Image model of StudyMate: which course / lecture is this slide photo from?\n\n  CNN   : MobileNetV2 (ImageNet weights, transfer learning) -> 1280 features -> softmax head (logistic regression),\n          trained on the training slides + 3 photo-like augmented copies of each.\n  OCR   : Tesseract reads the photo -> TF-IDF (words + letters) -> logistic regression trained on the text of the\n          training slides and the course question banks.\n  Fusion: log p = log p_ocr + w * log p_cnn, w chosen on a validation set taken from the training slides.\nTest    : 20 % of the slides (never used for training or for choosing w), as phone-like photos.\n"
+}

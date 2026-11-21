@@ -1,0 +1,184 @@
+{
+ "course": "PELC",
+ "when": "2026-11-16 14:58",
+ "slides": 105,
+ "lectures": 7,
+ "n_queries": 103,
+ "methods": {
+  "tfidf": {
+   "name": "TF-IDF",
+   "top1": 0.165,
+   "top3": 0.282,
+   "mrr": 0.261
+  },
+  "bm25": {
+   "name": "BM25",
+   "top1": 0.155,
+   "top3": 0.291,
+   "mrr": 0.262
+  },
+  "hybrid": {
+   "name": "Hybrid (TF-IDF + semantic)",
+   "top1": 0.165,
+   "top3": 0.291,
+   "mrr": 0.265
+  },
+  "lsa": {
+   "name": "Semantic (LSA)",
+   "top1": 0.165,
+   "top3": 0.291,
+   "mrr": 0.266
+  }
+ },
+ "offtopic": {
+  "total": 40,
+  "rejected": 24
+ },
+ "topic": {
+  "labels": [
+   "lec1",
+   "lec2",
+   "lec3",
+   "lec4",
+   "lec5",
+   "lec6",
+   "lec7"
+  ],
+  "matrix": [
+   [
+    7,
+    2,
+    2,
+    1,
+    0,
+    0,
+    3
+   ],
+   [
+    0,
+    9,
+    3,
+    2,
+    0,
+    1,
+    0
+   ],
+   [
+    1,
+    2,
+    11,
+    0,
+    1,
+    0,
+    0
+   ],
+   [
+    2,
+    0,
+    1,
+    10,
+    1,
+    1,
+    0
+   ],
+   [
+    2,
+    2,
+    0,
+    1,
+    8,
+    1,
+    1
+   ],
+   [
+    1,
+    2,
+    0,
+    1,
+    0,
+    9,
+    2
+   ],
+   [
+    4,
+    0,
+    0,
+    0,
+    1,
+    1,
+    9
+   ]
+  ],
+  "accuracy": 0.6,
+  "n": 105,
+  "per_class": [
+   {
+    "topic": "lec1",
+    "precision": 0.41,
+    "recall": 0.47,
+    "f1": 0.44,
+    "n": 15
+   },
+   {
+    "topic": "lec2",
+    "precision": 0.53,
+    "recall": 0.6,
+    "f1": 0.56,
+    "n": 15
+   },
+   {
+    "topic": "lec3",
+    "precision": 0.65,
+    "recall": 0.73,
+    "f1": 0.69,
+    "n": 15
+   },
+   {
+    "topic": "lec4",
+    "precision": 0.67,
+    "recall": 0.67,
+    "f1": 0.67,
+    "n": 15
+   },
+   {
+    "topic": "lec5",
+    "precision": 0.73,
+    "recall": 0.53,
+    "f1": 0.62,
+    "n": 15
+   },
+   {
+    "topic": "lec6",
+    "precision": 0.69,
+    "recall": 0.6,
+    "f1": 0.64,
+    "n": 15
+   },
+   {
+    "topic": "lec7",
+    "precision": 0.6,
+    "recall": 0.6,
+    "f1": 0.6,
+    "n": 15
+   }
+  ]
+ },
+ "history": [
+  {
+   "when": "2026-11-16 14:26",
+   "slides": 105,
+   "tfidf": 0.0,
+   "bm25": 0.0,
+   "hybrid": 0.0,
+   "lsa": 0.0
+  },
+  {
+   "when": "2026-11-16 14:58",
+   "slides": 105,
+   "tfidf": 0.165,
+   "bm25": 0.155,
+   "hybrid": 0.165,
+   "lsa": 0.165
+  }
+ ]
+}

@@ -1,0 +1,623 @@
+{
+ "course": "ROBO",
+ "train_questions": 336,
+ "test_questions": 84,
+ "slides": 105,
+ "slide_texts_added_to_training": 630,
+ "topics": {
+  "lec1": "Introduction to Robotics and Robot Anatomy",
+  "lec2": "Spatial Descriptions and Transformations",
+  "lec3": "Forward Kinematics and Denavit-Hartenberg Convention",
+  "lec4": "Inverse Kinematics",
+  "lec5": "Velocity Kinematics, Jacobian and Statics",
+  "lec6": "Manipulator Dynamics and Control",
+  "lec7": "Trajectory Generation, Mobile Robots and Robot Safety"
+ },
+ "classifier": {
+  "nb": {
+   "accuracy": 0.7738,
+   "macro_f1": 0.7666,
+   "macro_precision": 0.7782,
+   "macro_recall": 0.7738,
+   "cv5_accuracy": 0.7977,
+   "cv5_std": 0.0357,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.556,
+     "recall": 0.417,
+     "f1": 0.476,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.857,
+     "recall": 1.0,
+     "f1": 0.923,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.714,
+     "recall": 0.833,
+     "f1": 0.769,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.818,
+     "recall": 0.75,
+     "f1": 0.783,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 1.0,
+     "recall": 0.667,
+     "f1": 0.8,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.733,
+     "recall": 0.917,
+     "f1": 0.815,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.769,
+     "recall": 0.833,
+     "f1": 0.8,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     5,
+     0,
+     2,
+     2,
+     0,
+     0,
+     3
+    ],
+    [
+     0,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     10,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     2,
+     9,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     1,
+     0,
+     0,
+     8,
+     3,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     0,
+     0,
+     11,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     0,
+     0,
+     1,
+     10
+    ]
+   ],
+   "errors": [
+    {
+     "question": "Damping in DLS reduces accuracy slightly in exchange for stability. ( ) True ✔ ( ) False",
+     "true": "lec4",
+     "pred": "lec1"
+    },
+    {
+     "question": "Artificial potential field methods may suffer from:",
+     "true": "lec7",
+     "pred": "lec6"
+    },
+    {
+     "question": "Back-drivability refers to:",
+     "true": "lec6",
+     "pred": "lec1"
+    },
+    {
+     "question": "Compliance control allows a robot to:",
+     "true": "lec5",
+     "pred": "lec6"
+    },
+    {
+     "question": "The IFR is:",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "Singular value decomposition of J gives:",
+     "true": "lec5",
+     "pred": "lec2"
+    },
+    {
+     "question": "Offline programming of robots means:",
+     "true": "lec1",
+     "pred": "lec7"
+    },
+    {
+     "question": "Screw axes in PoE are expressed in:",
+     "true": "lec3",
+     "pred": "lec2"
+    },
+    {
+     "question": "Forward kinematics of a parallel robot (e.g., Stewart platform) is generally:",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "Robot programming can be done by teaching, offline programming or lead-through. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec7"
+    },
+    {
+     "question": "Hybrid force/position control uses a selection matrix to:",
+     "true": "lec5",
+     "pred": "lec6"
+    },
+    {
+     "question": "A six-axis articulated robot typically has six revolute joints. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "Light curtains are used to detect a person entering a robot cell. ( ) True ✔ ( ) False",
+     "true": "lec7",
+     "pred": "lec1"
+    },
+    {
+     "question": "Force/torque sensors cannot be used for robot assembly tasks. ( ) True ( ) False ✔",
+     "true": "lec5",
+     "pred": "lec6"
+    },
+    {
+     "question": "The IK wrist center for a spherical wrist is p_w = :",
+     "true": "lec4",
+     "pred": "lec3"
+    }
+   ]
+  },
+  "logreg": {
+   "accuracy": 0.7857,
+   "macro_f1": 0.79,
+   "macro_precision": 0.8013,
+   "macro_recall": 0.7857,
+   "cv5_accuracy": 0.8097,
+   "cv5_std": 0.0385,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.5,
+     "recall": 0.583,
+     "f1": 0.538,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.714,
+     "recall": 0.833,
+     "f1": 0.769,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.9,
+     "recall": 0.75,
+     "f1": 0.818,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.9,
+     "recall": 0.75,
+     "f1": 0.818,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.769,
+     "recall": 0.833,
+     "f1": 0.8,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     7,
+     0,
+     2,
+     0,
+     0,
+     0,
+     3
+    ],
+    [
+     0,
+     10,
+     1,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     10,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     1,
+     9,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     0,
+     9,
+     1,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     0,
+     0,
+     11,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     1,
+     0,
+     0,
+     10
+    ]
+   ],
+   "errors": [
+    {
+     "question": "Damping in DLS reduces accuracy slightly in exchange for stability. ( ) True ✔ ( ) False",
+     "true": "lec4",
+     "pred": "lec1"
+    },
+    {
+     "question": "The transform from frame A to frame C can be found by chaining A→B and B→C transforms. ( ) True ✔ ( ) False",
+     "true": "lec2",
+     "pred": "lec3"
+    },
+    {
+     "question": "Artificial potential field methods may suffer from:",
+     "true": "lec7",
+     "pred": "lec4"
+    },
+    {
+     "question": "Back-drivability refers to:",
+     "true": "lec6",
+     "pred": "lec1"
+    },
+    {
+     "question": "Compliance control allows a robot to:",
+     "true": "lec5",
+     "pred": "lec1"
+    },
+    {
+     "question": "Null-space motion changes the arm configuration without moving the end-effector. ( ) True ✔ ( ) False",
+     "true": "lec4",
+     "pred": "lec1"
+    },
+    {
+     "question": "The IFR is:",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "Offline programming of robots means:",
+     "true": "lec1",
+     "pred": "lec7"
+    },
+    {
+     "question": "Screw axes in PoE are expressed in:",
+     "true": "lec3",
+     "pred": "lec2"
+    },
+    {
+     "question": "Forward kinematics of a parallel robot (e.g., Stewart platform) is generally:",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "Robot programming can be done by teaching, offline programming or lead-through. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec7"
+    },
+    {
+     "question": "Gimbal lock is a singularity of:",
+     "true": "lec2",
+     "pred": "lec5"
+    },
+    {
+     "question": "Hybrid force/position control uses a selection matrix to:",
+     "true": "lec5",
+     "pred": "lec6"
+    },
+    {
+     "question": "A six-axis articulated robot typically has six revolute joints. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "Light curtains are used to detect a person entering a robot cell. ( ) True ✔ ( ) False",
+     "true": "lec7",
+     "pred": "lec1"
+    }
+   ]
+  },
+  "ens": {
+   "accuracy": 0.7738,
+   "macro_f1": 0.7666,
+   "macro_precision": 0.7782,
+   "macro_recall": 0.7738,
+   "cv5_accuracy": 0.8065,
+   "cv5_std": 0.0341,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.556,
+     "recall": 0.417,
+     "f1": 0.476,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.857,
+     "recall": 1.0,
+     "f1": 0.923,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.714,
+     "recall": 0.833,
+     "f1": 0.769,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.818,
+     "recall": 0.75,
+     "f1": 0.783,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 1.0,
+     "recall": 0.667,
+     "f1": 0.8,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.733,
+     "recall": 0.917,
+     "f1": 0.815,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.769,
+     "recall": 0.833,
+     "f1": 0.8,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     5,
+     0,
+     2,
+     2,
+     0,
+     0,
+     3
+    ],
+    [
+     0,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     10,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     2,
+     9,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     1,
+     0,
+     0,
+     8,
+     3,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     0,
+     0,
+     11,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     0,
+     0,
+     1,
+     10
+    ]
+   ],
+   "errors": [
+    {
+     "question": "Damping in DLS reduces accuracy slightly in exchange for stability. ( ) True ✔ ( ) False",
+     "true": "lec4",
+     "pred": "lec1"
+    },
+    {
+     "question": "Artificial potential field methods may suffer from:",
+     "true": "lec7",
+     "pred": "lec6"
+    },
+    {
+     "question": "Back-drivability refers to:",
+     "true": "lec6",
+     "pred": "lec1"
+    },
+    {
+     "question": "Compliance control allows a robot to:",
+     "true": "lec5",
+     "pred": "lec6"
+    },
+    {
+     "question": "The IFR is:",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "Singular value decomposition of J gives:",
+     "true": "lec5",
+     "pred": "lec2"
+    },
+    {
+     "question": "Offline programming of robots means:",
+     "true": "lec1",
+     "pred": "lec7"
+    },
+    {
+     "question": "Screw axes in PoE are expressed in:",
+     "true": "lec3",
+     "pred": "lec2"
+    },
+    {
+     "question": "Forward kinematics of a parallel robot (e.g., Stewart platform) is generally:",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "Robot programming can be done by teaching, offline programming or lead-through. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec7"
+    },
+    {
+     "question": "Hybrid force/position control uses a selection matrix to:",
+     "true": "lec5",
+     "pred": "lec6"
+    },
+    {
+     "question": "A six-axis articulated robot typically has six revolute joints. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "Light curtains are used to detect a person entering a robot cell. ( ) True ✔ ( ) False",
+     "true": "lec7",
+     "pred": "lec1"
+    },
+    {
+     "question": "Force/torque sensors cannot be used for robot assembly tasks. ( ) True ( ) False ✔",
+     "true": "lec5",
+     "pred": "lec6"
+    },
+    {
+     "question": "The IK wrist center for a spherical wrist is p_w = :",
+     "true": "lec4",
+     "pred": "lec3"
+    }
+   ]
+  }
+ },
+ "best_model": "logreg",
+ "search": {
+  "questions": 420,
+  "lecture_top1": 0.9333,
+  "lecture_top3": 0.9714,
+  "refused_course_questions": 7,
+  "test_questions": 84,
+  "test_top1": 0.7143,
+  "test_top3": 0.8571,
+  "test_refused": 7,
+  "threshold": {
+   "similarity": 0.02,
+   "coverage": 0.7,
+   "tuned_on": "336 training questions + 20 off-topic"
+  },
+  "offtopic_total": 20,
+  "offtopic_refused": 20
+ },
+ "bank": {
+  "total": 420,
+  "mcq": 259,
+  "tf": 161
+ }
+}

@@ -1,0 +1,623 @@
+{
+ "course": "THRM",
+ "train_questions": 336,
+ "test_questions": 84,
+ "slides": 105,
+ "slide_texts_added_to_training": 630,
+ "topics": {
+  "lec1": "Basic Concepts, Properties and Energy",
+  "lec2": "Properties of Pure Substances",
+  "lec3": "First Law for Closed Systems",
+  "lec4": "First Law for Control Volumes",
+  "lec5": "The Second Law and Heat Engines",
+  "lec6": "Entropy and Isentropic Efficiency",
+  "lec7": "Power and Refrigeration Cycles"
+ },
+ "classifier": {
+  "nb": {
+   "accuracy": 0.8095,
+   "macro_f1": 0.8072,
+   "macro_precision": 0.8169,
+   "macro_recall": 0.8095,
+   "cv5_accuracy": 0.8811,
+   "cv5_std": 0.0372,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.8,
+     "recall": 0.667,
+     "f1": 0.727,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.786,
+     "recall": 0.917,
+     "f1": 0.846,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.636,
+     "recall": 0.583,
+     "f1": 0.609,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 1.0,
+     "recall": 0.75,
+     "f1": 0.857,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.846,
+     "recall": 0.917,
+     "f1": 0.88,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.733,
+     "recall": 0.917,
+     "f1": 0.815,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     8,
+     0,
+     3,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     1,
+     11,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     2,
+     7,
+     0,
+     1,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     1,
+     9,
+     0,
+     0,
+     2
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     11,
+     0,
+     1
+    ],
+    [
+     0,
+     1,
+     0,
+     0,
+     0,
+     11,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     11
+    ]
+   ],
+   "errors": [
+    {
+     "question": "A process at constant pressure is:",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "27 °C in kelvin is:",
+     "true": "lec1",
+     "pred": "lec5"
+    },
+    {
+     "question": "Heat at constant pressure equals enthalpy change. ( ) True ✔ ( ) False",
+     "true": "lec3",
+     "pred": "lec2"
+    },
+    {
+     "question": "Superheating reduces turbine exit moisture. ( ) True ✔ ( ) False",
+     "true": "lec7",
+     "pred": "lec6"
+    },
+    {
+     "question": "Raising condenser temperature of an air conditioner:",
+     "true": "lec5",
+     "pred": "lec7"
+    },
+    {
+     "question": "Heat pipes transfer heat mainly by:",
+     "true": "lec2",
+     "pred": "lec1"
+    },
+    {
+     "question": "Steam turbines are found in:",
+     "true": "lec4",
+     "pred": "lec7"
+    },
+    {
+     "question": "A fan in a cooling loop adds:",
+     "true": "lec4",
+     "pred": "lec7"
+    },
+    {
+     "question": "Isothermal ideal gas work involves ln(V2/V1). ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "Batteries generate heat mainly due to:",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "Entropy change of 1 kg water heated from 300 K to 360 K (c = 4.18) is about:",
+     "true": "lec6",
+     "pred": "lec2"
+    },
+    {
+     "question": "20 W heating a 0.2 kg aluminum block (c = 900 J/kg·K) without losses raises temperature at:",
+     "true": "lec3",
+     "pred": "lec2"
+    },
+    {
+     "question": "Compressor outlets get hot mainly because compression is:",
+     "true": "lec3",
+     "pred": "lec7"
+    },
+    {
+     "question": "The first law determines process direction. ( ) True ( ) False ✔",
+     "true": "lec3",
+     "pred": "lec5"
+    },
+    {
+     "question": "Filling an evacuated rigid tank adiabatically with an ideal gas, final temperature is:",
+     "true": "lec4",
+     "pred": "lec3"
+    }
+   ]
+  },
+  "logreg": {
+   "accuracy": 0.7857,
+   "macro_f1": 0.7866,
+   "macro_precision": 0.7943,
+   "macro_recall": 0.7857,
+   "cv5_accuracy": 0.8662,
+   "cv5_std": 0.0291,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.7,
+     "recall": 0.583,
+     "f1": 0.636,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.714,
+     "recall": 0.833,
+     "f1": 0.769,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.571,
+     "recall": 0.667,
+     "f1": 0.615,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 1.0,
+     "recall": 0.833,
+     "f1": 0.909,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.833,
+     "recall": 0.833,
+     "f1": 0.833,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.818,
+     "recall": 0.75,
+     "f1": 0.783,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     7,
+     1,
+     3,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     1,
+     10,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     2,
+     8,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     1,
+     10,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     1,
+     0,
+     0,
+     10,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     12,
+     0
+    ],
+    [
+     1,
+     0,
+     1,
+     0,
+     0,
+     1,
+     9
+    ]
+   ],
+   "errors": [
+    {
+     "question": "A process at constant pressure is:",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "27 °C in kelvin is:",
+     "true": "lec1",
+     "pred": "lec5"
+    },
+    {
+     "question": "Heat at constant pressure equals enthalpy change. ( ) True ✔ ( ) False",
+     "true": "lec3",
+     "pred": "lec2"
+    },
+    {
+     "question": "Superheating reduces turbine exit moisture. ( ) True ✔ ( ) False",
+     "true": "lec7",
+     "pred": "lec6"
+    },
+    {
+     "question": "Raising condenser temperature of an air conditioner:",
+     "true": "lec5",
+     "pred": "lec2"
+    },
+    {
+     "question": "Thermodynamic tables use:",
+     "true": "lec1",
+     "pred": "lec2"
+    },
+    {
+     "question": "Heat pipes transfer heat mainly by:",
+     "true": "lec2",
+     "pred": "lec1"
+    },
+    {
+     "question": "Steam turbines are found in:",
+     "true": "lec4",
+     "pred": "lec7"
+    },
+    {
+     "question": "Isothermal ideal gas work involves ln(V2/V1). ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "Temperature stays constant during boiling at constant pressure. ( ) True ✔ ( ) False",
+     "true": "lec2",
+     "pred": "lec3"
+    },
+    {
+     "question": "Turbochargers use exhaust gas energy to:",
+     "true": "lec7",
+     "pred": "lec3"
+    },
+    {
+     "question": "Unrestrained expansion of a gas is:",
+     "true": "lec5",
+     "pred": "lec7"
+    },
+    {
+     "question": "Batteries generate heat mainly due to:",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "20 W heating a 0.2 kg aluminum block (c = 900 J/kg·K) without losses raises temperature at:",
+     "true": "lec3",
+     "pred": "lec2"
+    },
+    {
+     "question": "The first law determines process direction. ( ) True ( ) False ✔",
+     "true": "lec3",
+     "pred": "lec5"
+    }
+   ]
+  },
+  "ens": {
+   "accuracy": 0.8095,
+   "macro_f1": 0.8072,
+   "macro_precision": 0.8169,
+   "macro_recall": 0.8095,
+   "cv5_accuracy": 0.887,
+   "cv5_std": 0.0254,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.8,
+     "recall": 0.667,
+     "f1": 0.727,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.786,
+     "recall": 0.917,
+     "f1": 0.846,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.636,
+     "recall": 0.583,
+     "f1": 0.609,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 1.0,
+     "recall": 0.75,
+     "f1": 0.857,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.846,
+     "recall": 0.917,
+     "f1": 0.88,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.733,
+     "recall": 0.917,
+     "f1": 0.815,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     8,
+     0,
+     3,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     1,
+     11,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     2,
+     7,
+     0,
+     1,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     1,
+     9,
+     0,
+     0,
+     2
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     11,
+     0,
+     1
+    ],
+    [
+     0,
+     1,
+     0,
+     0,
+     0,
+     11,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     11
+    ]
+   ],
+   "errors": [
+    {
+     "question": "A process at constant pressure is:",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "27 °C in kelvin is:",
+     "true": "lec1",
+     "pred": "lec5"
+    },
+    {
+     "question": "Heat at constant pressure equals enthalpy change. ( ) True ✔ ( ) False",
+     "true": "lec3",
+     "pred": "lec2"
+    },
+    {
+     "question": "Superheating reduces turbine exit moisture. ( ) True ✔ ( ) False",
+     "true": "lec7",
+     "pred": "lec6"
+    },
+    {
+     "question": "Raising condenser temperature of an air conditioner:",
+     "true": "lec5",
+     "pred": "lec7"
+    },
+    {
+     "question": "Heat pipes transfer heat mainly by:",
+     "true": "lec2",
+     "pred": "lec1"
+    },
+    {
+     "question": "Steam turbines are found in:",
+     "true": "lec4",
+     "pred": "lec7"
+    },
+    {
+     "question": "A fan in a cooling loop adds:",
+     "true": "lec4",
+     "pred": "lec7"
+    },
+    {
+     "question": "Isothermal ideal gas work involves ln(V2/V1). ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "Batteries generate heat mainly due to:",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "Entropy change of 1 kg water heated from 300 K to 360 K (c = 4.18) is about:",
+     "true": "lec6",
+     "pred": "lec2"
+    },
+    {
+     "question": "20 W heating a 0.2 kg aluminum block (c = 900 J/kg·K) without losses raises temperature at:",
+     "true": "lec3",
+     "pred": "lec2"
+    },
+    {
+     "question": "Compressor outlets get hot mainly because compression is:",
+     "true": "lec3",
+     "pred": "lec7"
+    },
+    {
+     "question": "The first law determines process direction. ( ) True ( ) False ✔",
+     "true": "lec3",
+     "pred": "lec5"
+    },
+    {
+     "question": "Filling an evacuated rigid tank adiabatically with an ideal gas, final temperature is:",
+     "true": "lec4",
+     "pred": "lec3"
+    }
+   ]
+  }
+ },
+ "best_model": "ens",
+ "search": {
+  "questions": 420,
+  "lecture_top1": 0.9214,
+  "lecture_top3": 0.9667,
+  "refused_course_questions": 12,
+  "test_questions": 84,
+  "test_top1": 0.7143,
+  "test_top3": 0.8452,
+  "test_refused": 11,
+  "threshold": {
+   "similarity": 0.14,
+   "coverage": 0.4,
+   "tuned_on": "336 training questions + 20 off-topic"
+  },
+  "offtopic_total": 20,
+  "offtopic_refused": 19
+ },
+ "bank": {
+  "total": 420,
+  "mcq": 259,
+  "tf": 161
+ }
+}

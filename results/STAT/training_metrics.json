@@ -1,0 +1,573 @@
+{
+ "course": "STAT",
+ "train_questions": 336,
+ "test_questions": 84,
+ "slides": 105,
+ "slide_texts_added_to_training": 630,
+ "topics": {
+  "lec1": "Introduction to Statics, Units and Force Vectors",
+  "lec2": "Equilibrium of a Particle",
+  "lec3": "Moments and Equivalent Force Systems",
+  "lec4": "Equilibrium of Rigid Bodies",
+  "lec5": "Structural Analysis: Trusses, Frames and Machines",
+  "lec6": "Distributed Loads, Centroids and Centers of Gravity",
+  "lec7": "Friction and Area Moments of Inertia"
+ },
+ "classifier": {
+  "nb": {
+   "accuracy": 0.8452,
+   "macro_f1": 0.845,
+   "macro_precision": 0.8462,
+   "macro_recall": 0.8452,
+   "cv5_accuracy": 0.8629,
+   "cv5_std": 0.0419,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.818,
+     "recall": 0.75,
+     "f1": 0.783,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.692,
+     "recall": 0.75,
+     "f1": 0.72,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.769,
+     "recall": 0.833,
+     "f1": 0.8,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.727,
+     "recall": 0.667,
+     "f1": 0.696,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     9,
+     1,
+     2,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     9,
+     0,
+     3,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     10,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     1,
+     8,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     1,
+     0,
+     0,
+     11,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     12,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     12
+    ]
+   ],
+   "errors": [
+    {
+     "question": "The cross product is commutative. ( ) True ( ) False ✔",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "A two-force member's forces act along the line joining the two points of application. ( ) True ✔ ( ) False",
+     "true": "lec2",
+     "pred": "lec4"
+    },
+    {
+     "question": "Equilibrium equations are independent of the chosen coordinate system orientation. ( ) True ✔ ( ) False",
+     "true": "lec4",
+     "pred": "lec2"
+    },
+    {
+     "question": "In a smooth contact, the reaction force acts:",
+     "true": "lec2",
+     "pred": "lec4"
+    },
+    {
+     "question": "The cross product j × i equals:",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "In 2D, alternative equilibrium equations can use:",
+     "true": "lec4",
+     "pred": "lec2"
+    },
+    {
+     "question": "Two perpendicular forces of 3 N and 4 N have a resultant of:",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "A free-body diagram (FBD) shows:",
+     "true": "lec2",
+     "pred": "lec4"
+    },
+    {
+     "question": "A wheelbarrow is an example of:",
+     "true": "lec4",
+     "pred": "lec3"
+    },
+    {
+     "question": "Force is a scalar quantity. ( ) True ( ) False ✔",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "A rocker (pin-connected) member is analyzed using:",
+     "true": "lec4",
+     "pred": "lec5"
+    },
+    {
+     "question": "For a plane truss to be statically determinate and stable, m + r should equal:",
+     "true": "lec5",
+     "pred": "lec2"
+    },
+    {
+     "question": "Free-body diagrams are rarely used in statics. ( ) True ( ) False ✔",
+     "true": "lec1",
+     "pred": "lec2"
+    }
+   ]
+  },
+  "logreg": {
+   "accuracy": 0.869,
+   "macro_f1": 0.866,
+   "macro_precision": 0.8696,
+   "macro_recall": 0.869,
+   "cv5_accuracy": 0.8691,
+   "cv5_std": 0.0198,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.714,
+     "recall": 0.833,
+     "f1": 0.769,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.778,
+     "recall": 0.583,
+     "f1": 0.667,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.846,
+     "recall": 0.917,
+     "f1": 0.88,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     11,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     10,
+     0,
+     2,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     10,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     1,
+     7,
+     1,
+     1,
+     0
+    ],
+    [
+     0,
+     1,
+     0,
+     0,
+     11,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     12,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     12
+    ]
+   ],
+   "errors": [
+    {
+     "question": "The cross product is commutative. ( ) True ( ) False ✔",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "A two-force member's forces act along the line joining the two points of application. ( ) True ✔ ( ) False",
+     "true": "lec2",
+     "pred": "lec4"
+    },
+    {
+     "question": "Equilibrium equations are independent of the chosen coordinate system orientation. ( ) True ✔ ( ) False",
+     "true": "lec4",
+     "pred": "lec2"
+    },
+    {
+     "question": "A free-body diagram (FBD) shows:",
+     "true": "lec2",
+     "pred": "lec4"
+    },
+    {
+     "question": "A wheelbarrow is an example of:",
+     "true": "lec4",
+     "pred": "lec3"
+    },
+    {
+     "question": "The determinant method computes:",
+     "true": "lec3",
+     "pred": "lec5"
+    },
+    {
+     "question": "A rocker (pin-connected) member is analyzed using:",
+     "true": "lec4",
+     "pred": "lec5"
+    },
+    {
+     "question": "A smooth surface contact provides:",
+     "true": "lec4",
+     "pred": "lec2"
+    },
+    {
+     "question": "For a plane truss to be statically determinate and stable, m + r should equal:",
+     "true": "lec5",
+     "pred": "lec2"
+    },
+    {
+     "question": "A 600 N person stands 1 m from a fulcrum; to balance, a load at 3 m on the other side must be:",
+     "true": "lec4",
+     "pred": "lec6"
+    },
+    {
+     "question": "Free-body diagrams are rarely used in statics. ( ) True ( ) False ✔",
+     "true": "lec1",
+     "pred": "lec2"
+    }
+   ]
+  },
+  "ens": {
+   "accuracy": 0.869,
+   "macro_f1": 0.8685,
+   "macro_precision": 0.8711,
+   "macro_recall": 0.869,
+   "cv5_accuracy": 0.8748,
+   "cv5_std": 0.0388,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.833,
+     "recall": 0.833,
+     "f1": 0.833,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.714,
+     "recall": 0.833,
+     "f1": 0.769,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.833,
+     "recall": 0.833,
+     "f1": 0.833,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.8,
+     "recall": 0.667,
+     "f1": 0.727,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     10,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     10,
+     0,
+     2,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     10,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     1,
+     8,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     1,
+     0,
+     0,
+     11,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     12,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     12
+    ]
+   ],
+   "errors": [
+    {
+     "question": "The cross product is commutative. ( ) True ( ) False ✔",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "A two-force member's forces act along the line joining the two points of application. ( ) True ✔ ( ) False",
+     "true": "lec2",
+     "pred": "lec4"
+    },
+    {
+     "question": "Equilibrium equations are independent of the chosen coordinate system orientation. ( ) True ✔ ( ) False",
+     "true": "lec4",
+     "pred": "lec2"
+    },
+    {
+     "question": "The cross product j × i equals:",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "In 2D, alternative equilibrium equations can use:",
+     "true": "lec4",
+     "pred": "lec2"
+    },
+    {
+     "question": "Two perpendicular forces of 3 N and 4 N have a resultant of:",
+     "true": "lec1",
+     "pred": "lec3"
+    },
+    {
+     "question": "A free-body diagram (FBD) shows:",
+     "true": "lec2",
+     "pred": "lec4"
+    },
+    {
+     "question": "A wheelbarrow is an example of:",
+     "true": "lec4",
+     "pred": "lec3"
+    },
+    {
+     "question": "A rocker (pin-connected) member is analyzed using:",
+     "true": "lec4",
+     "pred": "lec5"
+    },
+    {
+     "question": "For a plane truss to be statically determinate and stable, m + r should equal:",
+     "true": "lec5",
+     "pred": "lec2"
+    },
+    {
+     "question": "Free-body diagrams are rarely used in statics. ( ) True ( ) False ✔",
+     "true": "lec1",
+     "pred": "lec2"
+    }
+   ]
+  }
+ },
+ "best_model": "ens",
+ "search": {
+  "questions": 420,
+  "lecture_top1": 0.9524,
+  "lecture_top3": 0.981,
+  "refused_course_questions": 1,
+  "test_questions": 84,
+  "test_top1": 0.7976,
+  "test_top3": 0.9048,
+  "test_refused": 1,
+  "threshold": {
+   "similarity": 0.02,
+   "coverage": 0.6,
+   "tuned_on": "336 training questions + 20 off-topic"
+  },
+  "offtopic_total": 20,
+  "offtopic_refused": 20
+ },
+ "bank": {
+  "total": 420,
+  "mcq": 259,
+  "tf": 161
+ }
+}

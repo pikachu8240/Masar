@@ -1,0 +1,473 @@
+{
+ "course": "DLOG",
+ "train_questions": 336,
+ "test_questions": 84,
+ "slides": 105,
+ "slide_texts_added_to_training": 630,
+ "topics": {
+  "lec1": "Number Systems and Codes",
+  "lec2": "Boolean Algebra and Logic Gates",
+  "lec3": "Combinational Logic Minimization",
+  "lec4": "Combinational Building Blocks",
+  "lec5": "Sequential Logic: Latches and Flip-Flops",
+  "lec6": "Counters, Registers and Finite State Machines",
+  "lec7": "Memory, Programmable Logic and HDLs"
+ },
+ "classifier": {
+  "nb": {
+   "accuracy": 0.9643,
+   "macro_f1": 0.9642,
+   "macro_precision": 0.9661,
+   "macro_recall": 0.9643,
+   "cv5_accuracy": 0.9108,
+   "cv5_std": 0.0157,
+   "per_topic": {
+    "lec1": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 1.0,
+     "recall": 0.917,
+     "f1": 0.957,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 1.0,
+     "recall": 0.917,
+     "f1": 0.957,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     12,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     1,
+     11,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     11,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     12,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     1,
+     0,
+     11,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     12
+    ]
+   ],
+   "errors": [
+    {
+     "question": "A quadrature encoder decoder can be implemented as:",
+     "true": "lec6",
+     "pred": "lec4"
+    },
+    {
+     "question": "Lookup tables (ROM) can replace:",
+     "true": "lec4",
+     "pred": "lec7"
+    },
+    {
+     "question": "F = sum m(5, 7, 13, 15) simplifies to:",
+     "true": "lec3",
+     "pred": "lec2"
+    }
+   ]
+  },
+  "logreg": {
+   "accuracy": 0.9286,
+   "macro_f1": 0.9279,
+   "macro_precision": 0.9307,
+   "macro_recall": 0.9286,
+   "cv5_accuracy": 0.9167,
+   "cv5_std": 0.0276,
+   "per_topic": {
+    "lec1": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.857,
+     "recall": 1.0,
+     "f1": 0.923,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 1.0,
+     "recall": 0.917,
+     "f1": 0.957,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     12,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     10,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     1,
+     10,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     12,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     1,
+     0,
+     11,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     11
+    ]
+   ],
+   "errors": [
+    {
+     "question": "A quadrature encoder decoder can be implemented as:",
+     "true": "lec6",
+     "pred": "lec4"
+    },
+    {
+     "question": "F = sum m(0, 2, 8, 10) in four variables simplifies to:",
+     "true": "lec3",
+     "pred": "lec2"
+    },
+    {
+     "question": "Lookup tables (ROM) can replace:",
+     "true": "lec4",
+     "pred": "lec7"
+    },
+    {
+     "question": "HDLs describe sequential software only. ( ) True ( ) False ✔",
+     "true": "lec7",
+     "pred": "lec5"
+    },
+    {
+     "question": "F = sum m(5, 7, 13, 15) simplifies to:",
+     "true": "lec3",
+     "pred": "lec2"
+    },
+    {
+     "question": "A BCD-to-seven-segment decoder drives:",
+     "true": "lec4",
+     "pred": "lec3"
+    }
+   ]
+  },
+  "ens": {
+   "accuracy": 0.9286,
+   "macro_f1": 0.9279,
+   "macro_precision": 0.9307,
+   "macro_recall": 0.9286,
+   "cv5_accuracy": 0.9197,
+   "cv5_std": 0.0147,
+   "per_topic": {
+    "lec1": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.857,
+     "recall": 1.0,
+     "f1": 0.923,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 1.0,
+     "recall": 0.917,
+     "f1": 0.957,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.917,
+     "recall": 0.917,
+     "f1": 0.917,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     12,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     10,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     1,
+     10,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     12,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     1,
+     0,
+     11,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     11
+    ]
+   ],
+   "errors": [
+    {
+     "question": "A quadrature encoder decoder can be implemented as:",
+     "true": "lec6",
+     "pred": "lec4"
+    },
+    {
+     "question": "F = sum m(0, 2, 8, 10) in four variables simplifies to:",
+     "true": "lec3",
+     "pred": "lec2"
+    },
+    {
+     "question": "Lookup tables (ROM) can replace:",
+     "true": "lec4",
+     "pred": "lec7"
+    },
+    {
+     "question": "HDLs describe sequential software only. ( ) True ( ) False ✔",
+     "true": "lec7",
+     "pred": "lec5"
+    },
+    {
+     "question": "F = sum m(5, 7, 13, 15) simplifies to:",
+     "true": "lec3",
+     "pred": "lec2"
+    },
+    {
+     "question": "A BCD-to-seven-segment decoder drives:",
+     "true": "lec4",
+     "pred": "lec3"
+    }
+   ]
+  }
+ },
+ "best_model": "ens",
+ "search": {
+  "questions": 420,
+  "lecture_top1": 0.9476,
+  "lecture_top3": 0.9738,
+  "refused_course_questions": 11,
+  "test_questions": 84,
+  "test_top1": 0.7976,
+  "test_top3": 0.9286,
+  "test_refused": 6,
+  "threshold": {
+   "similarity": 0.02,
+   "coverage": 0.7,
+   "tuned_on": "336 training questions + 20 off-topic"
+  },
+  "offtopic_total": 20,
+  "offtopic_refused": 19
+ },
+ "bank": {
+  "total": 420,
+  "mcq": 259,
+  "tf": 161
+ }
+}

@@ -1,0 +1,618 @@
+{
+ "course": "DYNA",
+ "train_questions": 336,
+ "test_questions": 84,
+ "slides": 105,
+ "slide_texts_added_to_training": 630,
+ "topics": {
+  "lec1": "Kinematics of Particles",
+  "lec2": "Kinetics of Particles: Newton's Second Law",
+  "lec3": "Work-Energy and Impulse-Momentum for Particles",
+  "lec4": "Planar Kinematics of Rigid Bodies",
+  "lec5": "Planar Kinetics of Rigid Bodies",
+  "lec6": "Energy and Momentum Methods for Rigid Bodies",
+  "lec7": "Mechanical Vibrations"
+ },
+ "classifier": {
+  "nb": {
+   "accuracy": 0.8333,
+   "macro_f1": 0.8343,
+   "macro_precision": 0.8396,
+   "macro_recall": 0.8333,
+   "cv5_accuracy": 0.8422,
+   "cv5_std": 0.0479,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.733,
+     "recall": 0.917,
+     "f1": 0.815,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.818,
+     "recall": 0.75,
+     "f1": 0.783,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.75,
+     "recall": 0.75,
+     "f1": 0.75,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.833,
+     "recall": 0.833,
+     "f1": 0.833,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.833,
+     "recall": 0.833,
+     "f1": 0.833,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 1.0,
+     "recall": 0.917,
+     "f1": 0.957,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     10,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     11,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     9,
+     0,
+     0,
+     1,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     9,
+     2,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     1,
+     10,
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     1,
+     1,
+     0,
+     10,
+     0
+    ],
+    [
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     11
+    ]
+   ],
+   "errors": [
+    {
+     "question": "Angular momentum is conserved in central-force motion. ( ) True ✔ ( ) False",
+     "true": "lec2",
+     "pred": "lec3"
+    },
+    {
+     "question": "In the moment equation about a point P not at G:",
+     "true": "lec5",
+     "pred": "lec4"
+    },
+    {
+     "question": "A pendulum rod rotates about a fixed axis. ( ) True ✔ ( ) False",
+     "true": "lec4",
+     "pred": "lec5"
+    },
+    {
+     "question": "Crumple zones in cars are designed to:",
+     "true": "lec3",
+     "pred": "lec2"
+    },
+    {
+     "question": "Shaft power equals torque times angular velocity. ( ) True ✔ ( ) False",
+     "true": "lec6",
+     "pred": "lec4"
+    },
+    {
+     "question": "Angular displacement is measured in:",
+     "true": "lec4",
+     "pred": "lec1"
+    },
+    {
+     "question": "For fixed-axis rotation about O, a convenient moment equation is:",
+     "true": "lec5",
+     "pred": "lec6"
+    },
+    {
+     "question": "Relative velocity v_B/A equals v_A - v_B. ( ) True ( ) False ✔",
+     "true": "lec1",
+     "pred": "lec4"
+    },
+    {
+     "question": "A motor delivering 2 kW at 100 rad/s produces torque:",
+     "true": "lec3",
+     "pred": "lec6"
+    },
+    {
+     "question": "Unbalance force is proportional to speed. ( ) True ( ) False ✔",
+     "true": "lec7",
+     "pred": "lec2"
+    },
+    {
+     "question": "A 500 N force moving a cart at 2 m/s delivers:",
+     "true": "lec3",
+     "pred": "lec2"
+    },
+    {
+     "question": "Angular impulse is the time integral of moment. ( ) True ✔ ( ) False",
+     "true": "lec6",
+     "pred": "lec3"
+    },
+    {
+     "question": "Wheel radius 0.3 m rolling at 10 rad/s has center speed:",
+     "true": "lec4",
+     "pred": "lec5"
+    },
+    {
+     "question": "The Coriolis term appears in polar coordinate acceleration. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec2"
+    }
+   ]
+  },
+  "logreg": {
+   "accuracy": 0.7738,
+   "macro_f1": 0.7708,
+   "macro_precision": 0.7853,
+   "macro_recall": 0.7738,
+   "cv5_accuracy": 0.8273,
+   "cv5_std": 0.04,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.769,
+     "recall": 0.833,
+     "f1": 0.8,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.706,
+     "recall": 1.0,
+     "f1": 0.828,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.875,
+     "recall": 0.583,
+     "f1": 0.7,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.727,
+     "recall": 0.667,
+     "f1": 0.696,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.692,
+     "recall": 0.75,
+     "f1": 0.72,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.727,
+     "recall": 0.667,
+     "f1": 0.696,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 1.0,
+     "recall": 0.917,
+     "f1": 0.957,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     10,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     7,
+     0,
+     1,
+     1,
+     0
+    ],
+    [
+     0,
+     1,
+     0,
+     8,
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     1,
+     0,
+     1,
+     9,
+     1,
+     0
+    ],
+    [
+     1,
+     0,
+     1,
+     1,
+     1,
+     8,
+     0
+    ],
+    [
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     11
+    ]
+   ],
+   "errors": [
+    {
+     "question": "The rotational equation of motion about the mass center is:",
+     "true": "lec5",
+     "pred": "lec2"
+    },
+    {
+     "question": "The Coriolis term is always negligible. ( ) True ( ) False ✔",
+     "true": "lec4",
+     "pred": "lec2"
+    },
+    {
+     "question": "Regenerative braking:",
+     "true": "lec6",
+     "pred": "lec1"
+    },
+    {
+     "question": "Kinetic energy can be negative. ( ) True ( ) False ✔",
+     "true": "lec3",
+     "pred": "lec6"
+    },
+    {
+     "question": "In the moment equation about a point P not at G:",
+     "true": "lec5",
+     "pred": "lec4"
+    },
+    {
+     "question": "A pendulum rod rotates about a fixed axis. ( ) True ✔ ( ) False",
+     "true": "lec4",
+     "pred": "lec5"
+    },
+    {
+     "question": "Crumple zones in cars are designed to:",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "A 2 kg ball at 3 m/s hits a 1 kg ball at rest and they stick. Final velocity is:",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "Shaft power equals torque times angular velocity. ( ) True ✔ ( ) False",
+     "true": "lec6",
+     "pred": "lec4"
+    },
+    {
+     "question": "Angular displacement is measured in:",
+     "true": "lec4",
+     "pred": "lec6"
+    },
+    {
+     "question": "Relative velocity v_B/A equals v_A - v_B. ( ) True ( ) False ✔",
+     "true": "lec1",
+     "pred": "lec4"
+    },
+    {
+     "question": "Static friction on a wheel rolling without slip:",
+     "true": "lec5",
+     "pred": "lec6"
+    },
+    {
+     "question": "A motor delivering 2 kW at 100 rad/s produces torque:",
+     "true": "lec3",
+     "pred": "lec5"
+    },
+    {
+     "question": "Spin rate ratio when inertia triples (H constant) is:",
+     "true": "lec6",
+     "pred": "lec5"
+    },
+    {
+     "question": "Unbalance force is proportional to speed. ( ) True ( ) False ✔",
+     "true": "lec7",
+     "pred": "lec2"
+    }
+   ]
+  },
+  "ens": {
+   "accuracy": 0.8214,
+   "macro_f1": 0.821,
+   "macro_precision": 0.8329,
+   "macro_recall": 0.8214,
+   "cv5_accuracy": 0.8422,
+   "cv5_std": 0.0386,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.909,
+     "recall": 0.833,
+     "f1": 0.87,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 0.75,
+     "recall": 1.0,
+     "f1": 0.857,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 0.889,
+     "recall": 0.667,
+     "f1": 0.762,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.75,
+     "recall": 0.75,
+     "f1": 0.75,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.714,
+     "recall": 0.833,
+     "f1": 0.769,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.818,
+     "recall": 0.75,
+     "f1": 0.783,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 1.0,
+     "recall": 0.917,
+     "f1": 0.957,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     10,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     8,
+     0,
+     1,
+     1,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     9,
+     2,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     1,
+     10,
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     1,
+     1,
+     1,
+     9,
+     0
+    ],
+    [
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     11
+    ]
+   ],
+   "errors": [
+    {
+     "question": "Kinetic energy can be negative. ( ) True ( ) False ✔",
+     "true": "lec3",
+     "pred": "lec6"
+    },
+    {
+     "question": "In the moment equation about a point P not at G:",
+     "true": "lec5",
+     "pred": "lec4"
+    },
+    {
+     "question": "A pendulum rod rotates about a fixed axis. ( ) True ✔ ( ) False",
+     "true": "lec4",
+     "pred": "lec5"
+    },
+    {
+     "question": "Crumple zones in cars are designed to:",
+     "true": "lec3",
+     "pred": "lec2"
+    },
+    {
+     "question": "Shaft power equals torque times angular velocity. ( ) True ✔ ( ) False",
+     "true": "lec6",
+     "pred": "lec4"
+    },
+    {
+     "question": "Angular displacement is measured in:",
+     "true": "lec4",
+     "pred": "lec1"
+    },
+    {
+     "question": "For fixed-axis rotation about O, a convenient moment equation is:",
+     "true": "lec5",
+     "pred": "lec6"
+    },
+    {
+     "question": "Relative velocity v_B/A equals v_A - v_B. ( ) True ( ) False ✔",
+     "true": "lec1",
+     "pred": "lec4"
+    },
+    {
+     "question": "A motor delivering 2 kW at 100 rad/s produces torque:",
+     "true": "lec3",
+     "pred": "lec5"
+    },
+    {
+     "question": "Spin rate ratio when inertia triples (H constant) is:",
+     "true": "lec6",
+     "pred": "lec5"
+    },
+    {
+     "question": "Unbalance force is proportional to speed. ( ) True ( ) False ✔",
+     "true": "lec7",
+     "pred": "lec2"
+    },
+    {
+     "question": "A 500 N force moving a cart at 2 m/s delivers:",
+     "true": "lec3",
+     "pred": "lec2"
+    },
+    {
+     "question": "Angular impulse is the time integral of moment. ( ) True ✔ ( ) False",
+     "true": "lec6",
+     "pred": "lec3"
+    },
+    {
+     "question": "Wheel radius 0.3 m rolling at 10 rad/s has center speed:",
+     "true": "lec4",
+     "pred": "lec5"
+    },
+    {
+     "question": "The Coriolis term appears in polar coordinate acceleration. ( ) True ✔ ( ) False",
+     "true": "lec1",
+     "pred": "lec2"
+    }
+   ]
+  }
+ },
+ "best_model": "ens",
+ "search": {
+  "questions": 420,
+  "lecture_top1": 0.9595,
+  "lecture_top3": 0.9857,
+  "refused_course_questions": 3,
+  "test_questions": 84,
+  "test_top1": 0.8452,
+  "test_top3": 0.9286,
+  "test_refused": 3,
+  "threshold": {
+   "similarity": 0.13,
+   "coverage": 0.6,
+   "tuned_on": "336 training questions + 20 off-topic"
+  },
+  "offtopic_total": 20,
+  "offtopic_refused": 20
+ },
+ "bank": {
+  "total": 420,
+  "mcq": 259,
+  "tf": 161
+ }
+}

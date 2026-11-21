@@ -1,0 +1,573 @@
+{
+ "course": "SIGS",
+ "train_questions": 336,
+ "test_questions": 84,
+ "slides": 105,
+ "slide_texts_added_to_training": 630,
+ "topics": {
+  "lec1": "Signals: Classification and Operations",
+  "lec2": "LTI Systems and Convolution",
+  "lec3": "Fourier Series",
+  "lec4": "Fourier Transform",
+  "lec5": "Laplace Transform and System Analysis",
+  "lec6": "Sampling and Discrete-Time Systems",
+  "lec7": "Digital Filters and the Discrete Fourier Transform"
+ },
+ "classifier": {
+  "nb": {
+   "accuracy": 0.881,
+   "macro_f1": 0.874,
+   "macro_precision": 0.8889,
+   "macro_recall": 0.881,
+   "cv5_accuracy": 0.872,
+   "cv5_std": 0.036,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.846,
+     "recall": 0.917,
+     "f1": 0.88,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 1.0,
+     "recall": 0.833,
+     "f1": 0.909,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.846,
+     "recall": 0.917,
+     "f1": 0.88,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.75,
+     "recall": 1.0,
+     "f1": 0.857,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.857,
+     "recall": 0.5,
+     "f1": 0.632,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     11,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     10,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     12,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     11,
+     0,
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     12,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     1,
+     4,
+     6,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     12
+    ]
+   ],
+   "errors": [
+    {
+     "question": "A pole at z = 0.9 corresponds to a response that:",
+     "true": "lec6",
+     "pred": "lec5"
+    },
+    {
+     "question": "A sensor with 200 Hz bandwidth should be sampled at least at:",
+     "true": "lec6",
+     "pred": "lec4"
+    },
+    {
+     "question": "Linear time-invariant systems never:",
+     "true": "lec2",
+     "pred": "lec1"
+    },
+    {
+     "question": "Moving averages are low-pass filters. ( ) True ✔ ( ) False",
+     "true": "lec2",
+     "pred": "lec7"
+    },
+    {
+     "question": "A pole at z = −0.9 produces:",
+     "true": "lec6",
+     "pred": "lec5"
+    },
+    {
+     "question": "A filter's group delay relates to:",
+     "true": "lec4",
+     "pred": "lec6"
+    },
+    {
+     "question": "A pole at z = 1.2 is unstable. ( ) True ✔ ( ) False",
+     "true": "lec6",
+     "pred": "lec5"
+    },
+    {
+     "question": "z^(−1) represents:",
+     "true": "lec6",
+     "pred": "lec1"
+    },
+    {
+     "question": "Euler's formula states e^(j omega t) equals:",
+     "true": "lec1",
+     "pred": "lec4"
+    },
+    {
+     "question": "A discrete LTI system is stable if all poles are:",
+     "true": "lec6",
+     "pred": "lec5"
+    }
+   ]
+  },
+  "logreg": {
+   "accuracy": 0.8452,
+   "macro_f1": 0.8465,
+   "macro_precision": 0.868,
+   "macro_recall": 0.8452,
+   "cv5_accuracy": 0.8602,
+   "cv5_std": 0.0214,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.688,
+     "recall": 0.917,
+     "f1": 0.786,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 1.0,
+     "recall": 0.833,
+     "f1": 0.909,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 1.0,
+     "recall": 0.833,
+     "f1": 0.909,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 1.0,
+     "recall": 0.833,
+     "f1": 0.909,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.688,
+     "recall": 0.917,
+     "f1": 0.786,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.778,
+     "recall": 0.583,
+     "f1": 0.667,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     11,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     1,
+     10,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     2,
+     0,
+     10,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     10,
+     0,
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     11,
+     1,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     0,
+     4,
+     7,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     12
+    ]
+   ],
+   "errors": [
+    {
+     "question": "The transform of the integral of x is:",
+     "true": "lec5",
+     "pred": "lec6"
+    },
+    {
+     "question": "A pole at z = 0.9 corresponds to a response that:",
+     "true": "lec6",
+     "pred": "lec5"
+    },
+    {
+     "question": "Group delay is the derivative of phase. ( ) True ✔ ( ) False",
+     "true": "lec4",
+     "pred": "lec1"
+    },
+    {
+     "question": "Linear time-invariant systems never:",
+     "true": "lec2",
+     "pred": "lec1"
+    },
+    {
+     "question": "Moving averages are low-pass filters. ( ) True ✔ ( ) False",
+     "true": "lec2",
+     "pred": "lec7"
+    },
+    {
+     "question": "A pole at z = −0.9 produces:",
+     "true": "lec6",
+     "pred": "lec5"
+    },
+    {
+     "question": "A filter's group delay relates to:",
+     "true": "lec4",
+     "pred": "lec6"
+    },
+    {
+     "question": "c_(−k) = c_k* for real signals. ( ) True ✔ ( ) False",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "For a real signal, c_(−k) equals:",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "A pole at z = 1.2 is unstable. ( ) True ✔ ( ) False",
+     "true": "lec6",
+     "pred": "lec5"
+    },
+    {
+     "question": "z^(−1) represents:",
+     "true": "lec6",
+     "pred": "lec1"
+    },
+    {
+     "question": "Euler's formula states e^(j omega t) equals:",
+     "true": "lec1",
+     "pred": "lec5"
+    },
+    {
+     "question": "A discrete LTI system is stable if all poles are:",
+     "true": "lec6",
+     "pred": "lec5"
+    }
+   ]
+  },
+  "ens": {
+   "accuracy": 0.8571,
+   "macro_f1": 0.852,
+   "macro_precision": 0.8693,
+   "macro_recall": 0.8571,
+   "cv5_accuracy": 0.8691,
+   "cv5_std": 0.0287,
+   "per_topic": {
+    "lec1": {
+     "precision": 0.786,
+     "recall": 0.917,
+     "f1": 0.846,
+     "n": 12
+    },
+    "lec2": {
+     "precision": 1.0,
+     "recall": 0.833,
+     "f1": 0.909,
+     "n": 12
+    },
+    "lec3": {
+     "precision": 1.0,
+     "recall": 0.917,
+     "f1": 0.957,
+     "n": 12
+    },
+    "lec4": {
+     "precision": 0.786,
+     "recall": 0.917,
+     "f1": 0.846,
+     "n": 12
+    },
+    "lec5": {
+     "precision": 0.733,
+     "recall": 0.917,
+     "f1": 0.815,
+     "n": 12
+    },
+    "lec6": {
+     "precision": 0.857,
+     "recall": 0.5,
+     "f1": 0.632,
+     "n": 12
+    },
+    "lec7": {
+     "precision": 0.923,
+     "recall": 1.0,
+     "f1": 0.96,
+     "n": 12
+    }
+   },
+   "confusion": [
+    [
+     11,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     10,
+     0,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     1,
+     0,
+     11,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     11,
+     0,
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     1,
+     11,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     1,
+     4,
+     6,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     12
+    ]
+   ],
+   "errors": [
+    {
+     "question": "The transform of the integral of x is:",
+     "true": "lec5",
+     "pred": "lec4"
+    },
+    {
+     "question": "A pole at z = 0.9 corresponds to a response that:",
+     "true": "lec6",
+     "pred": "lec5"
+    },
+    {
+     "question": "A sensor with 200 Hz bandwidth should be sampled at least at:",
+     "true": "lec6",
+     "pred": "lec4"
+    },
+    {
+     "question": "Linear time-invariant systems never:",
+     "true": "lec2",
+     "pred": "lec1"
+    },
+    {
+     "question": "Moving averages are low-pass filters. ( ) True ✔ ( ) False",
+     "true": "lec2",
+     "pred": "lec7"
+    },
+    {
+     "question": "A pole at z = −0.9 produces:",
+     "true": "lec6",
+     "pred": "lec5"
+    },
+    {
+     "question": "A filter's group delay relates to:",
+     "true": "lec4",
+     "pred": "lec6"
+    },
+    {
+     "question": "c_(−k) = c_k* for real signals. ( ) True ✔ ( ) False",
+     "true": "lec3",
+     "pred": "lec1"
+    },
+    {
+     "question": "A pole at z = 1.2 is unstable. ( ) True ✔ ( ) False",
+     "true": "lec6",
+     "pred": "lec5"
+    },
+    {
+     "question": "z^(−1) represents:",
+     "true": "lec6",
+     "pred": "lec1"
+    },
+    {
+     "question": "Euler's formula states e^(j omega t) equals:",
+     "true": "lec1",
+     "pred": "lec4"
+    },
+    {
+     "question": "A discrete LTI system is stable if all poles are:",
+     "true": "lec6",
+     "pred": "lec5"
+    }
+   ]
+  }
+ },
+ "best_model": "nb",
+ "search": {
+  "questions": 420,
+  "lecture_top1": 0.9262,
+  "lecture_top3": 0.9643,
+  "refused_course_questions": 8,
+  "test_questions": 84,
+  "test_top1": 0.7857,
+  "test_top3": 0.8929,
+  "test_refused": 2,
+  "threshold": {
+   "similarity": 0.12,
+   "coverage": 0.6,
+   "tuned_on": "336 training questions + 20 off-topic"
+  },
+  "offtopic_total": 20,
+  "offtopic_refused": 20
+ },
+ "bank": {
+  "total": 420,
+  "mcq": 259,
+  "tf": 161
+ }
+}
