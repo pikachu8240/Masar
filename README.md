@@ -10,9 +10,9 @@ This repository is the **project description** — what was built, how it works,
 
 | File | What it is |
 |---|---|
-| [Masar_Report_V2.pdf](Masar_Report_V2.pdf) | the full technical report, version 2 (140 pages): problems and solutions, history from the first Flask prototype to Masar, every function and why it was added, the three workflows and their access rights, Rafiq, every website function, the organization of the work, deployment step by step, the CNN, OCR and text models explained with the real code, results, screenshots, references |
-| [Masar_Presentation_V2.pptx](Masar_Presentation_V2.pptx) · [.pdf](Masar_Presentation_V2.pdf) | presentation, version 2: 74 slides in 10 chapters with speaker notes, animations and the embedded demo video — the idea, workflows, Rafiq, data and AI models, the application, every website function, organization, demo video, deployment, the journey, what comes next |
-| [Masar_Demo_V2.mp4](Masar_Demo_V2.mp4) | demo video (10 min 5 s): Part 1 on a computer — the student, doctor and administrator workflows with animated cards explaining every algorithm; Part 2 on a phone — the student workflow in 13 steps |
+| [Masar_Report_V1.pdf](Masar_Report_V1.pdf) | the full technical report, version 1 (140 pages): problems and solutions, history from the first Flask prototype to Masar, every function and why it was added, the three workflows and their access rights, Rafiq, every website function, the organization of the work, deployment step by step, the CNN, OCR and text models explained with the real code, results, screenshots, references |
+| [Masar_Presentation_V1.pptx](Masar_Presentation_V1.pptx) · [.pdf](Masar_Presentation_V1.pdf) | presentation, version 1: 74 slides in 10 chapters with speaker notes, animations and the embedded demo video — the idea, workflows, Rafiq, data and AI models, the application, every website function, organization, demo video, deployment, the journey, what comes next |
+| [Masar_Demo_V1.mp4](Masar_Demo_V1.mp4) | demo video (10 min 5 s): Part 1 on a computer — the student, doctor and administrator workflows with animated cards explaining every algorithm; Part 2 on a phone — the student workflow in 13 steps |
 | [results/](results/) | training and evaluation results of every course and of the image model: metrics (JSON) and confusion matrices (§14) |
 | [screenshots/](screenshots/) | screenshots of the site and the workflow diagrams |
 | [LICENSE](LICENSE) · [AUTHORS.md](AUTHORS.md) · [CITATION.cff](CITATION.cff) | ownership, author and how to cite |
@@ -55,7 +55,7 @@ Masar is a complete web product, not a single model. It has seven parts that wor
 13. [Deployment: from the laptop to a live site](#13-deployment-from-the-laptop-to-a-live-site)
 14. [Results files in this repository](#14-results-files-in-this-repository)
 15. [The report in pictures — every figure with its explanation](#15-the-report-in-pictures)
-16. [Guide to the technical report](#16-guide-to-the-technical-report-masar_report_v2pdf-140-pages)
+16. [Guide to the technical report](#16-guide-to-the-technical-report-masar_report_v1pdf-140-pages)
 17. [Change log](#17-change-log)
 18. [Ownership](#18-ownership)
 
@@ -176,7 +176,7 @@ The whole build (reading the lecture and question-bank files, training, evaluati
 **Rafiq (chat assistant).** A rule-based intent router understands English, Arabic and Franco-Arabic requests ("show my exams", "open the plan"), checks that the person is allowed to see the page, and otherwise falls back to the slide search. It does not generate free conversation.
 
 ### 3.1 Results on the twenty Mechatronics courses
-84 held-out bank questions per course (20 %, never used in training, tuning or model choice). Full tables and every confusion matrix are in the technical report ([Masar_Report_V2.pdf](Masar_Report_V2.pdf), Chapters 6–9 and Appendix A) and in [results/](results/).
+84 held-out bank questions per course (20 %, never used in training, tuning or model choice). Full tables and every confusion matrix are in the technical report ([Masar_Report_V1.pdf](Masar_Report_V1.pdf), Chapters 6–9 and Appendix A) and in [results/](results/).
 
 **What changed in this round (16 Nov):** the structured slide files are added to the training text (one row per slide and per bullet), a soft-vote **ensemble** of NB + LR joins
 the candidates, the kept model is chosen by **5-fold CV on the training questions only**, and the search index is **expanded with the training questions**
@@ -641,7 +641,7 @@ Course codes: AUTO Automotive Engineering · AUTN Autonomous Systems · BIOM Bio
 
 ## 15. The report in pictures
 
-Every figure of the technical report ([Masar_Report_V2.pdf](Masar_Report_V2.pdf)), with its caption and explanation, chapter by chapter. The images are in [assets/report/](assets/report/).
+Every figure of the technical report ([Masar_Report_V1.pdf](Masar_Report_V1.pdf)), with its caption and explanation, chapter by chapter. The images are in [assets/report/](assets/report/).
 
 ### Chapter 1 — Introduction
 
@@ -1183,7 +1183,7 @@ The study plan after the student set his exam date: each day lists the topics to
 **Figure 21.6:** Masar: course cards  
 The course cards of a student who follows several courses; the active course is highlighted and switching course changes the slides, models, exams and plan used on every page.
 
-## 16. Guide to the technical report (Masar_Report_V2.pdf, 140 pages)
+## 16. Guide to the technical report (Masar_Report_V1.pdf, 140 pages)
 
 The report explains everything above in depth, with real code, screenshots and results. Where to find each part:
 
@@ -1222,8 +1222,9 @@ Every change of the project (private repository), newest first — date and time
 
 | Time | Change |
 |---|---|
-| 21:00 | Public project page (this repository): version 2 of the report (140 pages), presentation (74 slides) and demo video; results and screenshots folders; README extended with every website function, organization, deployment, results files and this change log |
-| 20:20 | Version 2 of the deliverables: Masar_Presentation_V2 (77 slides, Organization chapter, presenters on the dividers, new demo video), Masar_Report_V2 (.pdf/.docx, 140 pages, expanded Project Organization chapter, smaller explained figures) and Masar_Demo_V2.mp4 (computer + phone, 10:05); added next to the previous versions |
+| 21:15 | Public files renamed to version 1 (Masar_Report_V1, Masar_Presentation_V1, Masar_Demo_V1): V1 is the public edition, V2 the full edition in the private repository |
+| 21:00 | Public project page (this repository): version 1 of the report (140 pages), presentation (74 slides) and demo video (V1 = the public edition for LinkedIn and this page; V2 = the full edition in the private repository); results and screenshots folders; README extended with every website function, organization, deployment, results files and this change log |
+| 20:20 | Version 2 of the deliverables: Masar_Presentation_V2 (77 slides, Organization chapter, presenters on the dividers, new demo video), Masar_Report_V2 (.pdf/.docx, 140 pages, expanded Project Organization chapter, smaller explained figures) and Masar_Demo_V1.mp4 (computer + phone, 10:05); added next to the previous versions |
 | 16:40 | Final presentation (70 slides, 9 chapters, embedded demo video, animations; Rafiq, website functions, deployment) and technical report (157 pages: every function, Rafiq, organization, deployment, video link) |
 
 ### Friday 20 November 2026
