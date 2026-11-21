@@ -54,9 +54,10 @@ Masar is a complete web product, not a single model. It has seven parts that wor
 12. [Organization of the work](#12-organization-of-the-work)
 13. [Deployment: from the laptop to a live site](#13-deployment-from-the-laptop-to-a-live-site)
 14. [Results files in this repository](#14-results-files-in-this-repository)
-15. [Guide to the technical report](#15-guide-to-the-technical-report-masar_report_v2pdf-140-pages)
-16. [Change log](#16-change-log)
-17. [Ownership](#17-ownership)
+15. [The report in pictures — every figure with its explanation](#15-the-report-in-pictures)
+16. [Guide to the technical report](#16-guide-to-the-technical-report-masar_report_v2pdf-140-pages)
+17. [Change log](#17-change-log)
+18. [Ownership](#18-ownership)
 
 ---
 
@@ -398,6 +399,14 @@ Every function of Masar was built with the same six steps, which is why all page
 
 Principles: answers only from the course material · small explainable models · role-based access · everything logged.
 
+<p align="center"><img src="assets/report/f3_10.jpg" width="760"></p>
+
+*Figure 3.10: Masar: the student home page*
+
+<p align="center"><img src="assets/report/f13_16.jpg" width="760"></p>
+
+*Figure 13.16: Masar: the data dashboard*
+
 ### 11.2 Who is responsible for what
 
 | Role | Responsible for | Cannot do |
@@ -430,6 +439,11 @@ Every staff action is written to the audit trail with time and person.
 | Personal backup | download a copy of his own data at any time; one automatic copy a day (last 7 kept) |
 
 ### 11.4 The exams function in detail
+
+<p align="center"><img src="assets/report/f11_1.jpg" width="760"></p>
+
+*Figure 11.1: Masar: the Exams page (student)*
+
 
 | Part | How it works |
 |---|---|
@@ -499,6 +513,15 @@ Every staff action is written to the audit trail with time and person.
 
 ### 12.2 Phases
 
+<p align="center"><img src="assets/report/f3_2.jpg" width="560"></p>
+
+*Figure 3.2: Version 1: the Ask page with the detected topic and three slides*
+
+<p align="center"><img src="assets/report/f3_4.jpg" width="760"></p>
+
+*Figure 3.4: StudyMate (slate-blue palette): the student home page*
+
+
 | Phase | Dates (2026) | Output |
 |---|---|---|
 | 1 · Requirements and design | 9 Nov | requirements mapped to features; dashboard designs compared, "Edu" look chosen |
@@ -512,7 +535,7 @@ Every staff action is written to the audit trail with time and person.
 1. Make the change on the laptop in one small, separate step.
 2. Run the 113 automatic tests; nothing is published while a test fails.
 3. Commit with a clear message and push to the private GitHub repository.
-4. Add a dated line (Cairo time) to the change log (§16).
+4. Add a dated line (Cairo time) to the change log (§17).
 5. Update the live site and check the changed page.
 6. Update the documents that describe the change.
 
@@ -535,6 +558,14 @@ Three principles: pages never contain logic (a page checks access, calls a modul
 ## 13. Deployment: from the laptop to a live site
 
 **The path of the code:** develop and test on the laptop → push to a private GitHub repository → the server pulls it → users reach it over HTTPS at <https://ahmedhallawa.pythonanywhere.com>. Heavy training (the CNN) runs on Google Colab and only the trained files travel through GitHub. Private data and the licence key live only on the server.
+
+<p align="center"><img src="assets/report/f20_1.jpg" width="760"></p>
+
+*Figure 20.1: The deployment pipeline: laptop → GitHub → PythonAnywhere → users*
+
+<p align="center"><img src="assets/report/f20_2.jpg" width="760"></p>
+
+*Figure 20.2: How one request is served on the server*
 
 ### 13.1 Why GitHub
 
@@ -602,9 +633,557 @@ Rule: accounts, logs and exams must survive restarts, so a persistent disk is re
 | [screenshots/](screenshots/) | screenshots of the site (student, doctor, administrator, Arabic, dark mode, phone) and the workflow diagrams |
 | [assets/](assets/) | logo, workflow diagrams and the figures used in this page |
 
+<p align="center"><img src="results/mechatronics_summary.png" width="760"></p>
+
+<p align="center"><img src="results/image_model/accuracy.png" width="560"> <img src="results/CIRC/confusion_matrix_ens.png" width="380"></p>
+
 Course codes: AUTO Automotive Engineering · AUTN Autonomous Systems · BIOM Biomechatronics · CTRL Control Systems · ROBO Robotics · SENA Sensors and Actuators · EPLC Embedded Systems and PLC · FLUD Fluid Mechanics · PELC Power Electronics · STAT Statics · DYNA Engineering Dynamics · STRM Strength of Materials · THRM Thermodynamics · HEAT Heat Transfer · MDSN Machine Design · CIRC Electric Circuits · EMCH Electrical Machines · DLOG Digital Logic Design · SIGS Signals and Systems · MCNC Manufacturing and CNC.
 
-## 15. Guide to the technical report (Masar_Report_V2.pdf, 140 pages)
+## 15. The report in pictures
+
+Every figure of the technical report ([Masar_Report_V2.pdf](Masar_Report_V2.pdf)), with its caption and explanation, chapter by chapter. The images are in [assets/report/](assets/report/).
+
+### Chapter 1 — Introduction
+
+<p align="center"><img src="assets/report/f1_1.jpg" width="760" alt="Figure 1.1"></p>
+
+**Figure 1.1:** Measured gains between the November version and the final Masar version  
+The left panel shows the mean topic accuracy before and after the 16 November improvement round; the right panel shows the image model. The large improvement of the image model comes from combining the pixel-based CNN with the text read from the photo (Chapter 9), not from a larger network.
+
+### Chapter 3 — Evolution of the System: from Flask Prototype to Masar
+
+<p align="center"><img src="assets/report/f3_1.jpg" width="760" alt="Figure 3.1"></p>
+
+**Figure 3.1:** Version 1: the first sign-in page (student code only)  
+The page asks only for a student code. There were no passwords: the privacy note explains that the code is stored with the questions so that progress can be shown. This was enough for a prototype but not for a real course, which is why accounts were added on 11 November.
+
+<p align="center"><img src="assets/report/f3_2.jpg" width="760" alt="Figure 3.2"></p>
+
+**Figure 3.2:** Version 1: the Ask page with the detected topic and three slides  
+The result page of the first version already shows the pieces that remain in Masar: the detected topic with its confidence (78 % in this example), the number of passages found, and for each slide the lecture and slide number, a topic label, a similarity score and the matched words highlighted. The right-hand panel lists the twelve topics with the student’s level (all at 0 % because nothing was practised yet) and the “Study next” suggestion.
+
+<p align="center"><img src="assets/report/f3_3.jpg" width="760" alt="Figure 3.3"></p>
+
+**Figure 3.3:** Version 1: the Progress page  
+Progress shows four counters (practice answers, correct answers, topics green, accuracy) and one bar per topic. The colour legend (red below 40 %, amber 40–69 %, green 70 % and above) and the explanation of how the level is computed are the same rules that are implemented today in core/mastery.py (Chapter 8).
+
+<p align="center"><img src="assets/report/f3_4.jpg" width="760" alt="Figure 3.4"></p>
+
+**Figure 3.4:** StudyMate (slate-blue palette): the student home page  
+The home page of the StudyMate era gathers what a student needs at a glance: a greeting, a weekly activity chart, a profile ring, a week calendar, the study plan, the weak topics and the shortcut to continue where he stopped. The slate-blue palette and the capsule navigation bar date from 12 November.
+
+<p align="center"><img src="assets/report/f3_5.jpg" width="760" alt="Figure 3.5"></p>
+
+**Figure 3.5:** StudyMate: an answered question  
+A question inside the course returns the quick answer, the detected topic and the best slides with their pictures. The slide image is rendered from the lecture PDF so that the student sees the original slide, not only extracted text.
+
+<p align="center"><img src="assets/report/f3_6.jpg" width="760" alt="Figure 3.6"></p>
+
+**Figure 3.6:** StudyMate: a question outside the course is refused  
+For an off-topic question the system displays the “Not found in the course” message instead of returning the least bad slide. This is requirement 6 of the project sheet.
+
+<p align="center"><img src="assets/report/f3_7.jpg" width="760" alt="Figure 3.7"></p>
+
+**Figure 3.7:** StudyMate: the Study Studio hub  
+The Study Studio (introduced on 12 November) builds study aids from the slides. In this screenshot the tiles are Videos, Quiz and Mind map, with Exams, My progress and Materials as shortcuts, and a button to ask with a photo; the summary report, flash cards, terms table, infographic and read-aloud function are in the same hub. Everything is derived from the slides, nothing is generated from outside knowledge.
+
+<p align="center"><img src="assets/report/f3_8.jpg" width="760" alt="Figure 3.8"></p>
+
+**Figure 3.8:** StudyMate: the dark theme  
+The dark theme is chosen from the header and remembered per browser. In V10 several dark-mode contrast problems were corrected.
+
+<p align="center"><img src="assets/report/f3_9.jpg" width="760" alt="Figure 3.9"></p>
+
+**Figure 3.9:** The Masar logo (light version, shown here in grey scale)  
+The icon is a rounded square containing a path that rises through three waypoints and ends in a flag. The Arabic word مسار is set beside the Latin name. The coral flag is the only accent colour, which is why the palette is called “Indigo Route”.
+
+<p align="center"><img src="assets/report/f3_10.jpg" width="760" alt="Figure 3.10"></p>
+
+**Figure 3.10:** Masar: the student home page  
+The same page in Masar. The structure is unchanged, the palette and logo are new. The cards show the exam countdown that the student sets himself, the plan that spreads weak topics over the days left, and the course chips for switching course.
+
+<p align="center"><img src="assets/report/f3_11.jpg" width="760" alt="Figure 3.11"></p>
+
+**Figure 3.11:** Masar: an answered question  
+The Ask page of the final version: topic and confidence, quick answer, the three best slides (lecture · slide) with the slide picture, the best sentence with a “show more” control, and the “was this helpful?” feedback that goes to the doctor’s report.
+
+<p align="center"><img src="assets/report/f3_12.jpg" width="760" alt="Figure 3.12"></p>
+
+**Figure 3.12:** Masar: the dark theme  
+The same student home page in dark mode. The mode is chosen with the moon / sun button in the header and remembered by the browser; every page and every component of the design kit has a dark version.
+
+### Chapter 4 — System Architecture
+
+<p align="center"><img src="assets/report/f4_1.jpg" width="760" alt="Figure 4.1"></p>
+
+**Figure 4.1:** Request flow of the application  
+The browser never talks to the models directly: every question goes through a Flask route that first verifies the user, then calls the relevant core module, and finally logs the event in SQLite. Because the models are small, loading them per course on demand is fast enough for the free hosting plan.
+
+### Chapter 6 — Slide Search and the “Not Found” Gate
+
+<p align="center"><img src="assets/report/f6_1.jpg" width="760" alt="Figure 6.1"></p>
+
+**Figure 6.1:** The two-condition Not-found gate  
+The gate always uses TF-IDF similarity so that its threshold θ keeps one meaning whichever ranking method the student selects. θ and c are chosen per course by a grid search on training questions (which must pass) and half of the off-topic set (which must be refused); the other half of the off-topic set is used only for reporting.
+
+<p align="center"><img src="assets/report/f6_2.jpg" width="760" alt="Figure 6.2"></p>
+
+**Figure 6.2:** Search accuracy for each of the twenty courses  
+Every course is evaluated separately because every course has its own index. The Top-3 value is consistently about ten points above Top-1, which means that in most failures the correct slide is still on the screen, just not first. The differences between courses reflect how much the slides of a course repeat the same vocabulary (for example, courses with many lectures sharing equations are harder than courses with distinctive terms).
+
+<p align="center"><img src="assets/report/f6_3.jpg" width="760" alt="Figure 6.3"></p>
+
+**Figure 6.3:** Masar: the “Not found” message for an off-topic question  
+The refusal is explicit and does not show any slide, so the student never receives a misleading answer. For the doctor, every refused question is listed in the weekly report as “questions the slides could not answer”, which tells him what to add to the course.
+
+<p align="center"><img src="assets/report/f6_4.jpg" width="760" alt="Figure 6.4"></p>
+
+**Figure 6.4:** Masar: an Arabic question  
+An Arabic question is translated to English slide terms by the glossary, searched, and answered with the same slide results. The interface is right-to-left. The topic and the confidence are shown in the student’s language.
+
+### Chapter 7 — Topic Classification
+
+<p align="center"><img src="assets/report/f7_1.jpg" width="760" alt="Figure 7.1"></p>
+
+**Figure 7.1:** Test accuracy of the three classifier kinds on the twenty courses  
+Each group of bars is one course. The three kinds are close for most courses, which shows that the features matter more than the model. The kept model is the cross-validation winner, not necessarily the tallest bar here, which is why the mean of the kept models (87.7 %) can differ slightly from the mean of the best bars.
+
+<p align="center"><img src="assets/report/f7_2.jpg" width="560" alt="Figure 7.2"></p>
+
+**Figure 7.2:** Confusion matrix of the ensemble for the Automotive Engineering course (AUTO)  
+Rows are the true lectures and columns the predicted lectures; the diagonal shows correct predictions. Errors concentrate between neighbouring lectures that share vocabulary, which is expected because lecture n builds on lecture n−1. The matrix lets the lecturer see which lectures students (and the classifier) confuse.
+
+<p align="center"><img src="assets/report/f7_3.jpg" width="760" alt="Figure 7.3"></p>
+
+**Figure 7.3:** F1 score per lecture for the three classifiers (AUTO)  
+The F1 score combines precision and recall. A lecture with a low F1 in all three models is a lecture whose slides are not distinctive; it is a candidate for rewriting or for additional slides.
+
+<p align="center"><img src="assets/report/f7_4.jpg" width="560" alt="Figure 7.4"></p>
+
+**Figure 7.4:** Confusion matrix of Naive Bayes (AUTO)  
+Rows are the true lectures of the held-out questions and columns the lectures predicted by Naive Bayes. The diagonal holds the correct predictions; the few errors fall between neighbouring lectures that share vocabulary.
+
+<p align="center"><img src="assets/report/f7_5.jpg" width="560" alt="Figure 7.5"></p>
+
+**Figure 7.5:** Confusion matrix of Logistic Regression (AUTO)  
+The three matrices for the same course are shown so that the effect of the model type can be compared; all matrices for all twenty courses are in static/reports/<CODE>/ and in the AI-models page of the application.
+
+### Chapter 8 — Student Model: Mastery, Study Next and Plan
+
+<p align="center"><img src="assets/report/f8_1.jpg" width="760" alt="Figure 8.1"></p>
+
+**Figure 8.1:** Masar: Practice mode with a question and hints  
+The screenshot shows a multiple-choice question, the buttons for the two hints and the answer choices. After an answer, the topic bar in Progress moves according to the formula of the next section.
+
+<p align="center"><img src="assets/report/f8_2.jpg" width="760" alt="Figure 8.2"></p>
+
+**Figure 8.2:** How the topic level evolves for four answer patterns  
+Always answering correctly without a hint reaches the green line (0.70) after three answers (0.35, 0.58, 0.73); answering correctly with one hint also reaches amber quickly but converges to 0.7, so a student who always needs a hint never becomes fully green; mixed answers oscillate. The coefficient 0.35 was chosen so that about three correct answers without hints move a topic from red to green.
+
+<p align="center"><img src="assets/report/f8_3.jpg" width="760" alt="Figure 8.3"></p>
+
+**Figure 8.3:** Masar: the Progress page  
+Every topic of the course is shown with its colour and percentage. Next to the list, “Study next” names one topic and explains the reason in words. The rule is: choose the weakest topic whose prerequisite topic is green; if none qualifies, choose the weakest. The prerequisite of a lecture is the previous lecture (topics.csv).
+
+<p align="center"><img src="assets/report/f8_4.jpg" width="760" alt="Figure 8.4"></p>
+
+**Figure 8.4:** Masar: the study plan  
+The plan shows each day with its topics and their current percentage; the last day is marked as the full review. The number of days left appears as the exam countdown on the home page. Because the plan is recomputed from the levels, it changes as the student improves: topics that reach 80 % disappear from it.
+
+<p align="center"><img src="assets/report/f8_5.jpg" width="760" alt="Figure 8.5"></p>
+
+**Figure 8.5:** Masar: the weekly report of one course (doctor)  
+The report is a one-page summary for the lecturer: totals, the weakest topics and the questions that students asked but the slides could not answer. These last items tell the lecturer which material is missing from the slides.
+
+### Chapter 9 — Image Recognition: CNN and OCR
+
+<p align="center"><img src="assets/report/f9_1.jpg" width="760" alt="Figure 9.1"></p>
+
+**Figure 9.1:** Architecture of the final image model  
+The text branch dominates (weight 1) and the CNN acts as a tiebreaker (weight 0.1) when two lectures have similar text, for example when OCR is partly wrong because of blur or perspective.
+
+<p align="center"><img src="assets/report/f9_2.jpg" width="760" alt="Figure 9.2"></p>
+
+**Figure 9.2:** Accuracy of the four image models  
+The bars show how the OCR text carries almost all the information; adding the CNN with a small weight gives a small gain in lecture accuracy (89.8 % to 90.0 %), at the cost of one slightly lower course accuracy (93.8 % to 93.6 %). The text part alone is enough for the web site, which is why the free host runs only the text half (see below).
+
+<p align="center"><img src="assets/report/f9_3.jpg" width="760" alt="Figure 9.3"></p>
+
+**Figure 9.3:** Confusion matrix of the combined model: course of a slide photo  
+Each row is a true course and each column a predicted course. Most counts lie on the diagonal. The off-diagonal values concentrate between related courses (for example Statics and Dynamics, or Electric Circuits and Electrical Machines), whose slides share vocabulary.
+
+<p align="center"><img src="assets/report/f9_4.jpg" width="760" alt="Figure 9.4"></p>
+
+**Figure 9.4:** Confusion matrix of the CNN alone: course of a slide photo  
+For comparison, the CNN alone spreads its predictions widely, because all courses use the same slide template. This figure explains why the CNN could not be used alone.
+
+<p align="center"><img src="assets/report/f9_5.jpg" width="320" alt="Figure 9.5"></p>
+
+**Figure 9.5:** Masar: My files (the same OCR reads uploaded photos of notes)  
+Uploaded photos of notes are read with the same OCR (up to ten pages per file) and then summarised, indexed and compared with the course lectures.
+
+### Chapter 10 — Rafiq: the Assistant
+
+<p align="center"><img src="assets/report/f10_1.jpg" width="760" alt="Figure 10.1"></p>
+
+**Figure 10.1:** Rafiq opened on the student home page  
+Rafiq is the round button at the bottom right of every signed-in page. It opens a panel over the page, so the user does not lose his place; the panel can be closed, and the “+” button starts a new conversation.
+
+<p align="center"><img src="assets/report/f10_2.jpg" width="760" alt="Figure 10.2"></p>
+
+**Figure 10.2:** (a) Asking what to study next  ·  (b) Opening pages by name  
+(a) The student writes “what should I study next”. Rafiq reads the mastery model and the prerequisites and names the next topic (here Lecture 1 of Control Systems), then offers the Study plan button. The answer is personal: another student with other levels receives another topic. (b) Short requests such as “open my exams” or “show my progress” are matched to the Exams and Progress intents. The answer explains in one sentence what the page contains, and the button opens it.
+
+<p align="center"><img src="assets/report/f10_3.jpg" width="760" alt="Figure 10.3"></p>
+
+**Figure 10.3:** (a) The same requests in Arabic  ·  (b) Franco-Arabic (Arabic written in Latin letters)  
+(a) Written in Egyptian Arabic (“عايز امتحانات” – “I want exams”, “اذاكر ايه” – “what do I study”), the messages receive Arabic answers and Arabic buttons, and the panel switches to right-to-left. (b) Many students type Arabic with Latin letters and digits. “3ayez a3rf mostawaya” (“I want to know my level”) is recognised through Franco keywords and opens the Progress page.
+
+<p align="center"><img src="assets/report/f10_4.jpg" width="760" alt="Figure 10.4"></p>
+
+**Figure 10.4:** (a) A course question is sent to the slide search  ·  (b) A forbidden or unknown request  
+(a) “What is a PID controller” is a lecture question, not a page request. Rafiq does not try to answer it from its own knowledge; it offers the Ask page with the question already filled in, so the answer comes from the slides with lecture and slide number, like every answer in Masar. (b) A student asks for the data vault, which only the main administrator may open, and then types meaningless text. Because the permission filter runs before ranking, the vault is never offered; Rafiq says it found no page and proposes the slide search. Both messages are recorded as “not understood” for the administrator.
+
+<p align="center"><img src="assets/report/f10_5.jpg" width="760" alt="Figure 10.5"></p>
+
+**Figure 10.5:** (a) Rafiq for the administrator  ·  (b) Rafiq in dark mode  
+(a) For staff the same assistant offers staff pages. “Create an exam” opens exam management and “show students at risk” opens the dashboard where weak students are listed. (b) The panel follows the theme of the site (light or dark) and the language chosen in the header.
+
+<p align="center"><img src="assets/report/f10_6.jpg" width="320" alt="Figure 10.6"></p>
+
+**Figure 10.6:** Rafiq on a phone, in Arabic  
+On phones the panel takes the full width of the screen and keeps the same behaviour.
+
+<p align="center"><img src="assets/report/f10_7.jpg" width="760" alt="Figure 10.7"></p>
+
+**Figure 10.7:** Rafiq intent routing  
+The routing is a bag-of-words score between the words of the message and the keywords of each intent. The permission filter is applied before ranking, so a forbidden page can never be offered.
+
+<p align="center"><img src="assets/report/f10_8.jpg" width="760" alt="Figure 10.8"></p>
+
+**Figure 10.8:** Masar: the Rafiq panel (student)  
+The panel shows the greeting, the chips of common requests and the conversation. Each answer ends with buttons; one press opens the page.
+
+<p align="center"><img src="assets/report/f10_9.jpg" width="760" alt="Figure 10.9"></p>
+
+**Figure 10.9:** Masar: a conversation in which Rafiq opens pages  
+The user asked what to study; Rafiq answered with the next topic and the Plan button. Messages in Arabic receive Arabic answers.
+
+<p align="center"><img src="assets/report/f10_10.jpg" width="760" alt="Figure 10.10"></p>
+
+**Figure 10.10:** Masar: Rafiq for the administrator  
+For staff the same assistant offers staff pages (dashboard, students, vault), still filtered by the user’s permissions.
+
+<p align="center"><img src="assets/report/f10_11.jpg" width="760" alt="Figure 10.11"></p>
+
+**Figure 10.11:** Masar: the Rafiq conversations page (main administrator)  
+The page lists people, conversations, the most requested intents and the messages Rafiq did not understand, with an Excel export. The unmatched messages show what users expect the system to do, and are the data for training the future layer 2.
+
+### Chapter 11 — The Exam Engine
+
+<p align="center"><img src="assets/report/f11_1.jpg" width="760" alt="Figure 11.1"></p>
+
+**Figure 11.1:** Masar: the Exams page (student)  
+The student chooses how many questions he wants (10, 20, 30, 40, 50, 100, 200 or all, where the bank is big enough). The page shows the estimated time, which is the sum of the minutes of the questions that will be drawn.
+
+<p align="center"><img src="assets/report/f11_2.jpg" width="760" alt="Figure 11.2"></p>
+
+**Figure 11.2:** Masar: exam management (doctor)  
+The doctor’s page has three tabs: Questions (upload, counts, delete bank), Settings (minutes per type and essay grading limits) and Results (all attempts, export).
+
+<p align="center"><img src="assets/report/f11_3.jpg" width="760" alt="Figure 11.3"></p>
+
+**Figure 11.3:** Life cycle of an exam attempt  
+The same flow is drawn together with the actions of the doctor in the exam process figure of Chapter 13.
+
+### Chapter 12 — Study Studio and My Files
+
+<p align="center"><img src="assets/report/f12_1.jpg" width="320" alt="Figure 12.1"></p>
+
+**Figure 12.1:** Masar: the Study Studio hub  
+The hub lists the aids and offers a shelf to the other student pages (exams, progress, materials, My files). A selector chooses a lecture or all lectures.
+
+<p align="center"><img src="assets/report/f12_2.jpg" width="760" alt="Figure 12.2"></p>
+
+**Figure 12.2:** Masar: the summary report  
+The report lists the selected sentences with their lecture and slide so that each can be checked in the original slide.
+
+<p align="center"><img src="assets/report/f12_3.jpg" width="760" alt="Figure 12.3"></p>
+
+**Figure 12.3:** Masar: flash cards  
+A card shows a term; pressing it shows the definition taken from the slides.
+
+<p align="center"><img src="assets/report/f12_4.jpg" width="760" alt="Figure 12.4"></p>
+
+**Figure 12.4:** Masar: the quick quiz  
+The quiz mixes term-matching and fill-the-gap questions built from slide sentences. Answers are marked with a letter and right/wrong animation.
+
+<p align="center"><img src="assets/report/f12_5.jpg" width="760" alt="Figure 12.5"></p>
+
+**Figure 12.5:** Masar: the concept map  
+The mind map can be exported as an image. It gives an overview of how the concepts of a lecture relate before studying the details.
+
+<p align="center"><img src="assets/report/f12_6.jpg" width="760" alt="Figure 12.6"></p>
+
+**Figure 12.6:** Masar: key terms table  
+The table of terms can be downloaded as an Excel file.
+
+<p align="center"><img src="assets/report/f12_7.jpg" width="760" alt="Figure 12.7"></p>
+
+**Figure 12.7:** Masar: infographic cards  
+The infographic turns one lecture into a single page of cards: key numbers, the main terms and the most important sentences, all taken from the slides. It is meant for a last look before the exam.
+
+<p align="center"><img src="assets/report/f12_8.jpg" width="320" alt="Figure 12.8"></p>
+
+**Figure 12.8:** Masar: My files  
+My files lists the notes the student uploaded for the current course, with the number of pages read and the topics found. Each file can be opened with the study tools (Read) or removed.
+
+<p align="center"><img src="assets/report/f12_9.jpg" width="320" alt="Figure 12.9"></p>
+
+**Figure 12.9:** Masar: the report of an uploaded file  
+The report summarises the uploaded file with its pages, terms, review time and definitions, so that the student sees what his own notes contain.
+
+<p align="center"><img src="assets/report/f12_10.jpg" width="760" alt="Figure 12.10"></p>
+
+**Figure 12.10:** Masar: the mind map linking files and lectures  
+The map shows which lectures of the course each uploaded file touches, and reveals lectures that are not covered by any file.
+
+<p align="center"><img src="assets/report/f12_11.jpg" width="760" alt="Figure 12.11"></p>
+
+**Figure 12.11:** Masar: a quiz generated from the student’s own files  
+A quick quiz built from the student’s own uploaded notes, with the same method as the Studio quiz on the slides: a key sentence is chosen and a term is hidden for the student to fill in.
+
+### Chapter 13 — The Three Workflows
+
+<p align="center"><img src="assets/report/f13_1.jpg" width="760" alt="Figure 13.1"></p>
+
+**Figure 13.1:** Student workflow  
+The student signs in, chooses courses and lands on the home page. From there four activities (Ask, Practice, Study Studio, Exams) feed the mastery model, which in turn feeds the progress page and the study plan; activity also earns badges and notifications. The assistant, chat and support are available on every page.
+
+<p align="center"><img src="assets/report/f13_2.jpg" width="760" alt="Figure 13.2"></p>
+
+**Figure 13.2:** Masar: the sign-in page  
+The two-panel sign-in page with the Masar logo. The language and theme switches are in the header.
+
+<p align="center"><img src="assets/report/f13_3.jpg" width="760" alt="Figure 13.3"></p>
+
+**Figure 13.3:** Masar: choosing the account type  
+Registration starts by choosing student or doctor, because the two paths ask for different information.
+
+<p align="center"><img src="assets/report/f13_4.jpg" width="760" alt="Figure 13.4"></p>
+
+**Figure 13.4:** Masar: student registration  
+A student must enter the university code. Hints appear only when a rule is broken.
+
+<p align="center"><img src="assets/report/f13_5.jpg" width="760" alt="Figure 13.5"></p>
+
+**Figure 13.5:** Masar: choosing courses (cards with search and Add / Added)  
+The student chooses his courses from cards that show the course code, name and number of lectures. A search field filters the cards, and the button changes from Add to Added.
+
+<p align="center"><img src="assets/report/f13_6.jpg" width="760" alt="Figure 13.6"></p>
+
+**Figure 13.6:** Masar: saved questions  
+Saved questions: every answer the student bookmarked from the Ask page, with the question, the slide, the topic and the time. One click opens the answer again; another removes it.
+
+<p align="center"><img src="assets/report/f13_7.jpg" width="760" alt="Figure 13.7"></p>
+
+**Figure 13.7:** Masar: badges  
+The badges page shows the 25 automatic badges (days, streak, questions, practice, topics, exams, habits) and the doctor’s custom badges. Earning a badge sends a bell notification.
+
+<p align="center"><img src="assets/report/f13_8.jpg" width="760" alt="Figure 13.8"></p>
+
+**Figure 13.8:** Masar: calendar of exams and events  
+The calendar shows, month by month, the exams the doctor scheduled for the course and the exam date the student set for himself, so the study plan and the countdown match the real dates.
+
+<p align="center"><img src="assets/report/f13_9.jpg" width="760" alt="Figure 13.9"></p>
+
+**Figure 13.9:** Masar: direct messages  
+Chat is by username; the other side must accept the request first, and either side can block or close a chat. Files can be sent and read ticks are shown.
+
+<p align="center"><img src="assets/report/f13_10.jpg" width="760" alt="Figure 13.10"></p>
+
+**Figure 13.10:** Masar: profile  
+The profile page: name, e-mail, profile photo and password change. The photo appears in the header, in chat and in the staff lists.
+
+<p align="center"><img src="assets/report/f13_11.jpg" width="760" alt="Figure 13.11"></p>
+
+**Figure 13.11:** Masar: lecture materials with download  
+Lecture materials: the PDF of every lecture of the course, downloadable one by one or all together in one ZIP file, together with the lecture videos.
+
+<p align="center"><img src="assets/report/f13_12.jpg" width="760" alt="Figure 13.12"></p>
+
+**Figure 13.12:** Doctor workflow  
+A doctor requests an account; the main administrator checks the request by hand. Once approved, the doctor sees only his courses and works in four directions: uploading lectures, building exams, reading the data dashboard and publishing announcements. Their outputs meet in the weekly report.
+
+<p align="center"><img src="assets/report/f13_13.jpg" width="760" alt="Figure 13.13"></p>
+
+**Figure 13.13:** Masar: doctor account request  
+The doctor account request: name, username, e-mail, password and department. The request waits until the main administrator approves it on the Doctors page.
+
+<p align="center"><img src="assets/report/f13_14.jpg" width="760" alt="Figure 13.14"></p>
+
+**Figure 13.14:** Masar: the staff home page  
+The overview cards show the doctor’s own courses, students, exams, questions and the calendar.
+
+<p align="center"><img src="assets/report/f13_15.jpg" width="760" alt="Figure 13.15"></p>
+
+**Figure 13.15:** Masar: Content (lectures, courses, maintenance)  
+Lectures are uploaded here. The page shows the lecture list per course and the maintenance tools; uploading rebuilds the index and the evaluation.
+
+<p align="center"><img src="assets/report/f13_16.jpg" width="760" alt="Figure 13.16"></p>
+
+**Figure 13.16:** Masar: the data dashboard  
+The dashboard summarises what students do: the most asked topics, the weakest topics, the colour distribution of students and the students who need attention.
+
+<p align="center"><img src="assets/report/f13_17.jpg" width="760" alt="Figure 13.17"></p>
+
+**Figure 13.17:** Masar: the weekly report page  
+The weekly report lists the courses of the doctor; opening one shows the activity of the week, the weak topics, the questions the slides could not answer and the students who need attention.
+
+<p align="center"><img src="assets/report/f13_18.jpg" width="760" alt="Figure 13.18"></p>
+
+**Figure 13.18:** Masar: announcements  
+Announcements: the doctor writes a title and a message for one course; every student of the course receives it as a notification and sees it on his home page.
+
+<p align="center"><img src="assets/report/f13_19.jpg" width="760" alt="Figure 13.19"></p>
+
+**Figure 13.19:** Masar: the students list  
+The students list: name, e-mail, university code, courses and last activity, with search, export to Excel or CSV, and deletion of an account with everything that belongs to it.
+
+<p align="center"><img src="assets/report/f13_20.jpg" width="760" alt="Figure 13.20"></p>
+
+**Figure 13.20:** Administrator workflow  
+The main administrator signs in and reaches four areas: accounts, courses and content, the AI-models page and monitoring. Sub-administrator permissions are set under Accounts. The data vault and the danger zone are reached only from the administrator’s profile with their own passwords.
+
+<p align="center"><img src="assets/report/f13_21.jpg" width="320" alt="Figure 13.21"></p>
+
+**Figure 13.21:** Masar: the administrator’s overview  
+The administrator’s overview: visits, doctors, students and courses at a glance, the week’s visits chart, the calendar and shortcuts to every staff page.
+
+<p align="center"><img src="assets/report/f13_22.jpg" width="760" alt="Figure 13.22"></p>
+
+**Figure 13.22:** Masar: doctors and approval of requests  
+Doctors: the requests waiting for approval (with department) at the top, then every doctor with his courses. The administrator can also create a doctor directly; the system generates a strong first password.
+
+<p align="center"><img src="assets/report/f13_23.jpg" width="760" alt="Figure 13.23"></p>
+
+**Figure 13.23:** Masar: sub-administrators and permission ticks  
+Sub-administrators: for each one the main administrator ticks the permission keys (content, exams, badges, data, students, chat, support, doctors, announce); the person sees only the matching staff pages.
+
+<p align="center"><img src="assets/report/f13_24.jpg" width="760" alt="Figure 13.24"></p>
+
+**Figure 13.24:** Masar: the official course-code list  
+The official course-code list uploaded by the administrator as Excel. Doctors choose a code from this list when they add a course, so every course on the site has an official code and name.
+
+<p align="center"><img src="assets/report/f13_25.jpg" width="320" alt="Figure 13.25"></p>
+
+**Figure 13.25:** Masar: the AI-models page  
+The page shows how the models work and the training results of the selected course, so that the owner can answer questions about the models during the defence.
+
+<p align="center"><img src="assets/report/f13_26.jpg" width="320" alt="Figure 13.26"></p>
+
+**Figure 13.26:** Masar: automatic evaluation of the search methods  
+For every course the page shows Top-1, Top-3 and MRR of the four search methods, the off-topic test, the confusion matrix, and the history after each upload.
+
+<p align="center"><img src="assets/report/f13_27.jpg" width="760" alt="Figure 13.27"></p>
+
+**Figure 13.27:** Masar: the site visitors page  
+Site visitors: every page view with device, system, browser, country and network (from an offline GeoIP database), the busiest hours, and the latest visits ten per page.
+
+<p align="center"><img src="assets/report/f13_28.jpg" width="760" alt="Figure 13.28"></p>
+
+**Figure 13.28:** Masar: the support inbox  
+The support inbox: messages sent from the support form (even before sign-in) with name, contact and status. The administrator marks them done and can reset a password from here.
+
+<p align="center"><img src="assets/report/f13_29.jpg" width="760" alt="Figure 13.29"></p>
+
+**Figure 13.29:** Masar: the activity log of administrator actions  
+The activity log: every staff action (accounts, content, exams, vault, backups …) with time, person and a readable label, newest first, so responsibility can always be traced.
+
+<p align="center"><img src="assets/report/f13_30.jpg" width="320" alt="Figure 13.30"></p>
+
+**Figure 13.30:** Exam process (doctor and student)  
+The diagram shows both sides of an exam: the doctor prepares the bank and the settings; the student receives the random exam; the system grades and the doctor reads the results.
+
+<p align="center"><img src="assets/report/f13_31.jpg" width="760" alt="Figure 13.31"></p>
+
+**Figure 13.31:** Assistant (Rafiq) process  
+The assistant receives a message, scores the intents, filters by permission, and either opens a page or falls back to slide search.
+
+### Chapter 14 — Every Function of the Website
+
+<p align="center"><img src="assets/report/f14_1.jpg" width="760" alt="Figure 14.1"></p>
+
+**Figure 14.1:** Exam management (doctor): bank of 420 questions, settings and attempts  
+The doctor’s exam page has three tabs: the question bank (420 questions in this course, English and Arabic), the settings (minutes per question type, essay limits) and the results of every attempt with export.
+
+### Chapter 15 — Administration, Monitoring and Backups
+
+<p align="center"><img src="assets/report/f15_1.jpg" width="320" alt="Figure 15.1"></p>
+
+**Figure 15.1:** Masar: site visitors  
+Charts of devices, browsers and hours are followed by the table of latest visits. Visitors from inside and outside Egypt can be distinguished. The page is for the main administrator.
+
+<p align="center"><img src="assets/report/f15_2.jpg" width="760" alt="Figure 15.2"></p>
+
+**Figure 15.2:** Masar: the backup page (student)  
+A student sees his own copies, a button for a copy now, and the downloads.
+
+<p align="center"><img src="assets/report/f15_3.jpg" width="760" alt="Figure 15.3"></p>
+
+**Figure 15.3:** Masar: the backup page (main administrator)  
+The administrator sees the daily and manual site copies, with download, delete and restore.
+
+<p align="center"><img src="assets/report/f15_4.jpg" width="760" alt="Figure 15.4"></p>
+
+**Figure 15.4:** Masar: administrator sign-in  
+The staff sign-in page used by doctors and administrators. Five wrong tries lock the name for 15 minutes, and the main administrator’s password can be changed from his profile.
+
+### Chapter 20 — Deployment and Operations
+
+<p align="center"><img src="assets/report/f20_1.jpg" width="760" alt="Figure 20.1"></p>
+
+**Figure 20.1:** The deployment pipeline: laptop → GitHub → PythonAnywhere → users  
+The arrows show the only direction in which code travels. Nothing is copied to the server by hand: every file on the server comes from a commit, so the live site always equals a known version of the repository and can be returned to an earlier version if needed.
+
+<p align="center"><img src="assets/report/f20_2.jpg" width="760" alt="Figure 20.2"></p>
+
+**Figure 20.2:** How one request is served on the server  
+From left to right: the browser sends an HTTPS request; the PythonAnywhere worker passes it to the Flask application through the WSGI file; three guards check the licence, a scheduled deletion and the user’s permission; the route calls a core module; a Jinja2 page is returned and the action is logged.
+
+### Appendix B — Further Screens
+
+<p align="center"><img src="assets/report/f21_1.jpg" width="320" alt="Figure 21.1"></p>
+
+**Figure 21.1:** Masar on a phone (390 px): home  
+The phone layout stacks the cards in one column and keeps the same functions; the navigation moves to a compact bar.
+
+<p align="center"><img src="assets/report/f21_2.jpg" width="320" alt="Figure 21.2"></p>
+
+**Figure 21.2:** Masar on a phone: the Ask page  
+Questions, results and the photo button are reachable with one hand.
+
+<p align="center"><img src="assets/report/f21_3.jpg" width="760" alt="Figure 21.3"></p>
+
+**Figure 21.3:** Masar: notifications  
+The bell collects badges, exam notices, announcements, chat messages and reminders in one list.
+
+<p align="center"><img src="assets/report/f21_4.jpg" width="760" alt="Figure 21.4"></p>
+
+**Figure 21.4:** Masar: the badge creator for staff  
+Doctors and administrators can create custom badges with a name, an icon and a rule; students receive a notification when they earn one.
+
+<p align="center"><img src="assets/report/f21_5.jpg" width="760" alt="Figure 21.5"></p>
+
+**Figure 21.5:** Masar: study plan with an exam date  
+The study plan after the student set his exam date: each day lists the topics to study, weakest first, and the last day before the exam is kept for a full review.
+
+<p align="center"><img src="assets/report/f21_6.jpg" width="760" alt="Figure 21.6"></p>
+
+**Figure 21.6:** Masar: course cards  
+The course cards of a student who follows several courses; the active course is highlighted and switching course changes the slides, models, exams and plan used on every page.
+
+## 16. Guide to the technical report (Masar_Report_V2.pdf, 140 pages)
 
 The report explains everything above in depth, with real code, screenshots and results. Where to find each part:
 
@@ -634,7 +1213,7 @@ The report explains everything above in depth, with real code, screenshots and r
 | Appendices A–C | 133–138 | results of the twenty courses, further screens, glossary |
 | References | 139 | the sources, with links |
 
-## 16. Change log
+## 17. Change log
 
 
 Every change of the project (private repository), newest first — date and time in Cairo time (UTC+2). 121 changes in total.
@@ -811,6 +1390,6 @@ Every change of the project (private repository), newest first — date and time
 | 16:42 | Arabic/English interface, dark mode, multi-course support |
 | 16:10 | StudyMate: course study assistant (Flask) + Render deploy config |
 
-## 17. Ownership
+## 18. Ownership
 
 Masar is the work of **Ahmed Esam Yahia Hallawa** — idea, design, development, data preparation, models and documents. All rights reserved. The source code and the site's data are private. The documents in this repository may be read; copying, publishing or reusing them or the project's name and logo needs the author's written permission. See [LICENSE](LICENSE).
