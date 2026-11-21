@@ -2,11 +2,13 @@
 
 <img src="assets/masar_logo.svg" alt="Masar" width="300">
 
-**Author and owner:** Ahmed Esam Yahia Hallawa · © 2026, all rights reserved · **Live site:** <https://ahmedhallawa.pythonanywhere.com>
+**Author and owner:** Ahmed Esam Yahia Hallawa · © 2026, all rights reserved · **Licence:** view only, not open source (see [LICENSE](LICENSE)) · **Live site:** <https://ahmedhallawa.pythonanywhere.com>
 
 **Masar** (*“path”* — *your path to the exam*; the project was called StudyMate until 16 November 2026) answers a student's question **only from the lecture slides of his course**, always shows the *source* (lecture and slide number), and says **"Not found in the course"** instead of inventing an answer. Around that core it is a complete study site for three kinds of users — **students**, **doctors** and **administrators** — in **English and Arabic**, light and dark mode, on computers and phones.
 
 This repository is the **project description** — what was built, how it works, which AI models were used and how well they perform. It contains no source code and no site data.
+
+**Access and running:** the source code is private and is not published here, so there are no install steps in this repository. The live site starts only with a licence key: without one it shows the licence notice. Reviewers who need to try it can ask the author for a trial key.
 
 | File | What it is |
 |---|---|
@@ -104,7 +106,7 @@ with the correct answer and a short explanation.
 
 The official course-code list was updated with the 20 codes, names and results.
 
-Everything the models were trained and tested on is in the repository:
+The training and test data are kept in the private source repository and are not published here. Their structure is:
 
 | File | Content |
 |---|---|
@@ -324,8 +326,8 @@ Browser (Jinja2 pages, one CSS design kit, small JS)  ──►  Flask app (app.
 | Deep learning | TensorFlow / Keras, MobileNetV2 (Google Colab) |
 | Storage | SQLite (`logs.db`, imported once from the old `logs.xlsx`), JSON files, joblib models |
 | Monitoring | GeoIP2Fast (offline) |
-| Quality | pytest (112 automatic tests), Playwright screenshots |
-| Hosting | GitHub (private) → PythonAnywhere |
+| Quality | pytest (113 automatic tests), Playwright screenshots |
+| Hosting | source code on a private GitHub repository → PythonAnywhere |
 
 ## 7. How the project evolved
 
@@ -1222,6 +1224,7 @@ Every change of the project (private repository), newest first — date and time
 
 | Time | Change |
 |---|---|
+| 21:10 | README corrected: one test count (113) everywhere, licence stated at the top, access and running note, data and models described as private, hosting line, contributions and contact section |
 | 21:15 | Public files renamed to version 1 (Masar_Report_V1, Masar_Presentation_V1, Masar_Demo_V1): V1 is the public edition, V2 the full edition in the private repository |
 | 21:00 | Public project page (this repository): version 1 of the report (140 pages), presentation (74 slides) and demo video (V1 = the public edition for LinkedIn and this page; V2 = the full edition in the private repository); results and screenshots folders; README extended with every website function, organization, deployment, results files and this change log |
 | 20:20 | Version 2 of the deliverables: Masar_Presentation_V2 (77 slides, Organization chapter, presenters on the dividers, new demo video), Masar_Report_V2 (.pdf/.docx, 140 pages, expanded Project Organization chapter, smaller explained figures) and Masar_Demo_V1.mp4 (computer + phone, 10:05); added next to the previous versions |
@@ -1394,3 +1397,7 @@ Every change of the project (private repository), newest first — date and time
 ## 18. Ownership
 
 Masar is the work of **Ahmed Esam Yahia Hallawa** — idea, design, development, data preparation, models and documents. All rights reserved. The source code and the site's data are private. The documents in this repository may be read; copying, publishing or reusing them or the project's name and logo needs the author's written permission. See [LICENSE](LICENSE).
+
+## 19. Contributions and contact
+
+This is a showcase of a finished project, so contributions to this repository are not accepted. Questions and feedback are welcome through the Issues tab, and any reuse of the work needs the author's written permission (see section 18).
