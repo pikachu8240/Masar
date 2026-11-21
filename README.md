@@ -12,7 +12,7 @@ This repository is the **project description** — what was built, how it works,
 |---|---|
 | [Masar_Report.pdf](Masar_Report.pdf) | the full technical report (131 pages): problems and solutions, history from the first Flask prototype to Masar, every function and why it was added, the three workflows and their access rights, the CNN, OCR and text models explained with the real code, results, screenshots, references |
 | [Masar_Presentation.pptx](Masar_Presentation.pptx) · [.pdf](Masar_Presentation.pdf) | presentation, 36 slides with speaker notes |
-| [Masar_Demo.mp4](Masar_Demo.mp4) | demo video (7 min 53 s): the student, doctor and administrator workflows and animated cards explaining every algorithm |
+| [Masar_Demo.mp4](Masar_Demo.mp4) | demo video (10 min): Part 1 on a computer — the student, doctor and administrator workflows with animated cards explaining every algorithm; Part 2 on a phone — the student workflow |
 
 ## What the project is made of
 
